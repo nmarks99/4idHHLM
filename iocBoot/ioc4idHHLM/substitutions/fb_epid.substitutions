@@ -1,0 +1,16 @@
+# $Id$
+
+file "$(OPTICS)/opticsApp/Db/fb_epid.db"
+  {
+    {
+        P=4idHHLM:epid1,  
+	IN=4idHHLM:epid1:sim.VAL, 
+	OUT=4idHHLM:epid1:sim.D, 
+	MODE=PID,   
+	CALC=A,    
+	PERMIT1="4idHHLM:epid1:on.VAL",      
+	PERMIT2="",      
+	PERMIT3="",      
+	PERMIT4=""
+    }
+  }
