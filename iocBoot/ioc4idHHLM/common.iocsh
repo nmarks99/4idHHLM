@@ -1,5 +1,5 @@
 ### save_restore setup, change SAVE_PATH if you are having autosave manage its own NFS mount
-iocshLoad("$(AUTOSAVE)/iocsh/autosave_settings.iocsh", "PREFIX=$(PREFIX), SAVE_PATH=$(TOP)/iocBoot/$(IOC)")
+iocshLoad("$(AUTOSAVE)/iocsh/autosave_settings.iocsh", "PREFIX=$(PREFIX), SAVE_PATH=$(TOP)/iocBoot/$(IOC), NUM_SEQ=12, SEQ_PERIOD=43200")
 iocshLoad("$(AUTOSAVE)/iocsh/save_restore.iocsh",      "PREFIX=$(PREFIX), POSITIONS_FILE=auto_positions, SETTINGS_FILE=auto_settings")
 iocshLoad("$(AUTOSAVE)/iocsh/autosaveBuild.iocsh",     "PREFIX=$(PREFIX), BUILD_PATH=autosave")
 
@@ -57,6 +57,10 @@ dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=$(PREFIX),R=mybusy2")
 #- IOCNM is name of IOC, RHOST specifies the remote server accepting hearbeats
 dbLoadRecords("$(ALIVE)/aliveApp/Db/alive.db", "P=$(PREFIX),IOCNM=$(IOC),RHOST=164.54.100.11")
 dbLoadRecords("$(ALIVE)/aliveApp/Db/aliveMSGCalc.db", "P=$(PREFIX)")
+
+# Miscellaneous PV's, such as burtResult
+dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=$(PREFIX)")
+
 
 #- A set of scan parameters for each positioner.  This is a convenience
 #- for the user.  It can contain an entry for each scannable thing in the

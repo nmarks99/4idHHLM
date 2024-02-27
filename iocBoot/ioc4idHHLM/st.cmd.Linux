@@ -14,6 +14,8 @@ ioc4idHHLMLinux_registerRecordDeviceDriver(pdbbase)
 < settings.iocsh
 < common.iocsh
 
+< iocsh/motors.iocsh
+
 #- devIocStats
 dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=$(PREFIX)")
 #- PV aliases change :: into :
