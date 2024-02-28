@@ -6,13 +6,13 @@ file "$(MOTOR)/motorApp/Db/pseudoMotor.db"
 {
 pattern
 {M,           	DINP,                    	OUT,                     	RDBL,                          	STOO,    			DESC, 		EGU, 	DIR, VELO, VBAS, ACCL, BDST, BVEL, BACC, MRES,  RRES, PREC, DHLM, DLLM}
-{pm1, 		"4idHHLM:KBH:Done NPP NMS", 	"4idHHLM:pm1DVAL.VAL PP MS", 	"4idHHLM:KBH:Readback.G NPP NMS", 	"4idHHLM:KBH:Stop PP MS", 		"pm1",          	mm,  	Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,    6,    2, -2}
-{pm2, 		"4idHHLM:KBH:Done NPP NMS", 	"4idHHLM:pm2DVAL.VAL PP MS", 	"4idHHLM:KBH:Readback.H NPP NMS", 	"4idHHLM:KBH:Stop PP MS",   	"pm2",     	mm,  	Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,    6,    2, -2}
+{pm1, 		"4idHHLM:pm:Done NPP NMS", 	"4idHHLM:pm1DVAL.VAL PP MS", 	"4idHHLM:pm:Readback.G NPP NMS", 	"4idHHLM:pm:Stop PP MS", 		"pmsum",          	mm,  	Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,    6,    2, -2}
+{pm2, 		"4idHHLM:pm:Done NPP NMS", 	"4idHHLM:pm2DVAL.VAL PP MS", 	"4idHHLM:pm:Readback.H NPP NMS", 	"4idHHLM:pm:Stop PP MS",   	"pmdiff",     	mm,  	Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,    6,    2, -2}
 }
 
 file "$(MOTOR)/motorApp/Db/sumDiff2D.db"
 {
 pattern
 {T,   		SUM, 		DIFF,      	    M1DRV,     		M1RBV,    	M2DRV,    	M2RBV,    	M1STOP,    	M1DONE,    	M2STOP,    	M2DONE,  	PREC}
-{KBH:,  	pm1,  		pm2,    		    m1.VAL, 		m1.RBV,  	m2.VAL, 	m2.RBV,  	m1.STOP,  	m1.DMOV,  	m2.STOP,  	m2.DMOV,    8}
+{pm:,  	pm1,  		pm2,    		    m1.VAL, 		m1.RBV,  	m2.VAL, 	m2.RBV,  	m1.STOP,  	m1.DMOV,  	m2.STOP,  	m2.DMOV,    8}
 }
