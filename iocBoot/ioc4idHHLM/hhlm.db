@@ -38,7 +38,7 @@ record(calcout, "$(P)alpha_calc")
     field(INPA, "$(P)$(x1).RBV")
     field(INPB, "$(P)$(x2).RBV")
     field(INPC, "670") # 670mm
-    field(CALC, "ATAN((A-B)/C)") # 0 is Rh position
+    field(CALC, "ATAN((A-B)/C)")
     field(OUT, "$(P)alpha PP")
 }
 
@@ -46,7 +46,7 @@ record(calcout, "$(P)beam_offset_calc")
 {
     field(INPA, "$(P)alpha.VAL")
     field(INPB, "670") # 670mm
-    field(CALC, "B*SIN(C)+2")
+    field(CALC, "B*SIN(A)+2")
     field(OUT, "$(P)beam_offset PP")
 }
 
