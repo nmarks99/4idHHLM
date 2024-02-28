@@ -1,16 +1,5 @@
 
 # Selected stripe
-# 0: Rh
-# 1: Si
-# 2: Pt
-# record(longout, "$(P)stripe")
-# {
-    # field(DRVL, 0)
-    # field(DRVH, 2)
-    # field(PINI, 1)
-    # field(FLNK, "$(P)stripe_fanout.PROC")
-# }
-
 record(mbbo, "$(P)stripe")
 {
     # field(DTYP, "Soft Channel")
@@ -50,7 +39,7 @@ record(calcout, "$(P)alpha_calc")
     field(INPB, "$(P)$(x2).RBV")
     field(INPC, "670") # 670mm
     field(CALC, "ATAN((A-B)/C)") # 0 is Rh position
-    field(OUT, "$(P)alpha")
+    field(OUT, "$(P)alpha PP")
 }
 
 record(calcout, "$(P)beam_offset_calc")
@@ -58,7 +47,7 @@ record(calcout, "$(P)beam_offset_calc")
     field(INPA, "$(P)alpha.VAL")
     field(INPB, "670") # 670mm
     field(CALC, "B*SIN(C)+2")
-    field(OUT, "$(P)beam_offset")
+    field(OUT, "$(P)beam_offset PP")
 }
 
 # Sets Y motor position according to selected stripe 
@@ -75,5 +64,5 @@ record(calcout, "$(P)Ec_calc")
 {
     field(INPA, "$(P)stripe.VAL")
     field(CALC, "(A == 0) ? 21 : (A == 1) ? 10 : (A == 2) ? 27 : 0")
-    field(OUT, "$(P)Ecritical")
+    field(OUT, "$(P)Ecritical PP")
 }

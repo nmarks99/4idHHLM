@@ -1,14 +1,14 @@
 
 file {
-	name="/net/s4dserv/xorApps/epics/synApps_6_3/ioc/4idHHLM/4idHHLMApp/op/adl/newDisplay.adl"
+	name="/net/s4dserv/xorApps/epics/synApps_6_3/ioc/4idHHLM/4idHHLMApp/op/adl/hhlm.adl"
 	version=030111
 }
 display {
 	object {
-		x=1077
-		y=1035
-		width=514
-		height=274
+		x=402
+		y=928
+		width=513
+		height=355
 	}
 	clr=14
 	bclr=4
@@ -89,8 +89,8 @@ display {
 }
 "message button" {
 	object {
-		x=15
-		y=230
+		x=20
+		y=275
 		width=25
 		height=20
 	}
@@ -104,8 +104,8 @@ display {
 }
 "text entry" {
 	object {
-		x=40
-		y=230
+		x=45
+		y=275
 		width=50
 		height=20
 	}
@@ -119,8 +119,8 @@ display {
 }
 "message button" {
 	object {
-		x=90
-		y=230
+		x=95
+		y=275
 		width=25
 		height=20
 	}
@@ -173,8 +173,8 @@ polyline {
 }
 "text entry" {
 	object {
-		x=15
-		y=200
+		x=20
+		y=245
 		width=100
 		height=25
 	}
@@ -189,7 +189,7 @@ polyline {
 text {
 	object {
 		x=15
-		y=135
+		y=210
 		width=60
 		height=20
 	}
@@ -202,9 +202,9 @@ text {
 rectangle {
 	object {
 		x=10
-		y=130
-		width=186
-		height=126
+		y=205
+		width=191
+		height=98
 	}
 	"basic attribute" {
 		clr=14
@@ -214,14 +214,14 @@ rectangle {
 }
 "text update" {
 	object {
-		x=400
-		y=40
+		x=370
+		y=45
 		width=50
 		height=15
 	}
 	monitor {
 		chan="$(P)Ecritical"
-		clr=30
+		clr=54
 		bclr=3
 	}
 	align="horiz. right"
@@ -230,13 +230,13 @@ rectangle {
 }
 text {
 	object {
-		x=450
-		y=40
+		x=425
+		y=45
 		width=33
 		height=15
 	}
 	"basic attribute" {
-		clr=30
+		clr=14
 	}
 	textix="keV"
 	align="horiz. right"
@@ -381,8 +381,8 @@ text {
 }
 "choice button" {
 	object {
-		x=125
-		y=170
+		x=130
+		y=215
 		width=60
 		height=80
 	}
@@ -394,8 +394,8 @@ text {
 }
 text {
 	object {
-		x=315
-		y=40
+		x=285
+		y=45
 		width=80
 		height=15
 	}
@@ -407,14 +407,14 @@ text {
 }
 "text update" {
 	object {
-		x=400
-		y=65
+		x=370
+		y=70
 		width=50
 		height=15
 	}
 	monitor {
 		chan="$(P)beam_offset"
-		clr=30
+		clr=54
 		bclr=3
 	}
 	align="horiz. right"
@@ -423,8 +423,8 @@ text {
 }
 text {
 	object {
-		x=315
-		y=65
+		x=285
+		y=70
 		width=80
 		height=15
 	}
@@ -436,8 +436,8 @@ text {
 }
 text {
 	object {
-		x=315
-		y=90
+		x=285
+		y=95
 		width=80
 		height=15
 	}
@@ -449,24 +449,49 @@ text {
 }
 "text update" {
 	object {
-		x=400
-		y=90
+		x=370
+		y=95
 		width=50
 		height=15
 	}
 	monitor {
 		chan="$(P)alpha"
-		clr=30
+		clr=54
 		bclr=3
 	}
 	align="horiz. right"
 	limits {
 	}
 }
+menu {
+	object {
+		x=85
+		y=160
+		width=93
+		height=19
+	}
+	control {
+		chan="$(P)stripe.VAL"
+		clr=0
+		bclr=17
+	}
+}
+text {
+	object {
+		x=15
+		y=165
+		width=80
+		height=15
+	}
+	"basic attribute" {
+		clr=0
+	}
+	textix="Stripe:"
+}
 "message button" {
 	object {
-		x=220
-		y=230
+		x=225
+		y=275
 		width=25
 		height=20
 	}
@@ -480,8 +505,8 @@ text {
 }
 "text entry" {
 	object {
-		x=245
-		y=230
+		x=250
+		y=275
 		width=50
 		height=20
 	}
@@ -495,8 +520,8 @@ text {
 }
 "message button" {
 	object {
-		x=295
-		y=230
+		x=300
+		y=275
 		width=25
 		height=20
 	}
@@ -510,8 +535,8 @@ text {
 }
 "text entry" {
 	object {
-		x=220
-		y=200
+		x=225
+		y=245
 		width=100
 		height=25
 	}
@@ -526,7 +551,7 @@ text {
 text {
 	object {
 		x=220
-		y=135
+		y=210
 		width=60
 		height=20
 	}
@@ -539,9 +564,9 @@ text {
 rectangle {
 	object {
 		x=215
-		y=130
-		width=186
-		height=126
+		y=205
+		width=191
+		height=98
 	}
 	"basic attribute" {
 		clr=14
@@ -551,8 +576,8 @@ rectangle {
 }
 "choice button" {
 	object {
-		x=330
-		y=170
+		x=335
+		y=215
 		width=60
 		height=80
 	}
@@ -560,18 +585,5 @@ rectangle {
 		chan="$(P)$(PM2).SPMG"
 		clr=31
 		bclr=20
-	}
-}
-menu {
-	object {
-		x=410
-		y=130
-		width=93
-		height=19
-	}
-	control {
-		chan="$(P)stripe.VAL"
-		clr=0
-		bclr=17
 	}
 }
