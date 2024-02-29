@@ -20,7 +20,7 @@ ioc4idHHLMLinux_registerRecordDeviceDriver(pdbbase)
 # load pseudomotors
 dbLoadTemplate("substitutions/pseudoMotor.substitutions","P=$(PREFIX)")
 
-dbLoadRecords("./hhlm.db","P=$(PREFIX),x1=m1,x2=m2,y=m3")
+dbLoadRecords("./hhlm.db","P=$(PREFIX),X1=m1,X2=m2,Y=m3")
 
 #- devIocStats
 dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=$(PREFIX)")

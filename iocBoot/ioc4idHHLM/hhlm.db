@@ -36,9 +36,9 @@ record(fanout, "$(P)stripe_fanout")
 
 record(calcout, "$(P)alpha_calc")
 {
-    field(INPA, "$(P)$(x1).RBV CP")
-    field(INPB, "$(P)$(x2).RBV CP")
-    field(CALC, "R2D*ATAN(D2R*(A-B)/0.670)") # atan((x1-x2)/d)
+    field(INPA, "$(P)$(X1).RBV CP")
+    field(INPB, "$(P)$(X2).RBV CP")
+    field(CALC, "R2D*ATAN(D2R*(A-B)/0.670)") # atan((X1-X2)/d)
     field(OUT, "$(P)alpha PP")
 }
 
@@ -55,7 +55,7 @@ record(calcout, "$(P)Y_calc")
     field(INPA, "$(P)stripe.VAL")
     field(INPB, "0") # Rh position
     field(CALC, "(A*11)+B")
-    field(OUT, "$(P)$(y).VAL CA")
+    field(OUT, "$(P)$(Y).VAL CA")
 }
 
 # Sets critical energy $(P)Ecritical according to selected stripe

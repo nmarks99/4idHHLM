@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=2590
-		y=508
+		x=2580
+		y=500
 		width=513
 		height=355
 	}
@@ -618,10 +618,10 @@ text {
 }
 "related display" {
 	object {
-		x=435
-		y=5
-		width=60
-		height=20
+		x=420
+		y=320
+		width=86
+		height=28
 	}
 	display[0] {
 		label="X1"
