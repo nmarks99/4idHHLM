@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=2621
-		y=954
+		x=2590
+		y=508
 		width=513
 		height=355
 	}
@@ -608,7 +608,7 @@ text {
 		height=14
 	}
 	monitor {
-		chan="$(P)$(x1).EGU"
+		chan="$(P)$(X1).EGU"
 		clr=54
 		bclr=3
 	}
@@ -632,6 +632,11 @@ text {
 		label="X2"
 		name="motorx_more.adl"
 		args="P=$(P),M=$(X2)"
+	}
+	display[2] {
+		label="Y"
+		name="motorx_more.adl"
+		args="P=$(P),M=$(Y)"
 	}
 	clr=0
 	bclr=17
