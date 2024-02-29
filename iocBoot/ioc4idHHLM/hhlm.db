@@ -2,7 +2,6 @@
 # Selected stripe
 record(mbbo, "$(P)stripe")
 {
-    # field(DTYP, "Soft Channel")
     field(PINI, 1)
     field(ZRST, "Rh")
     field(ONST, "Si")
@@ -18,11 +17,13 @@ record(ai, "$(P)Ecritical")
 record(ai, "$(P)alpha")
 {
     field(DESC, "Glancing angle")
+    field(PREC, 4)
 }
 
 record(ai, "$(P)beam_offset")
 {
     field(DESC, "Beam offset")
+    field(PREC, 4)
 }
 
 record(fanout, "$(P)stripe_fanout")
@@ -35,18 +36,16 @@ record(fanout, "$(P)stripe_fanout")
 
 record(calcout, "$(P)alpha_calc")
 {
-    field(INPA, "$(P)$(x1).RBV")
-    field(INPB, "$(P)$(x2).RBV")
-    field(INPC, "670") # 670mm
-    field(CALC, "ATAN((A-B)/C)")
+    field(INPA, "$(P)$(x1).RBV CP")
+    field(INPB, "$(P)$(x2).RBV CP")
+    field(CALC, "R2D*ATAN(D2R*(A-B)/0.670)") # atan((x1-x2)/d)
     field(OUT, "$(P)alpha PP")
 }
 
 record(calcout, "$(P)beam_offset_calc")
 {
-    field(INPA, "$(P)alpha.VAL")
-    field(INPB, "670") # 670mm
-    field(CALC, "B*SIN(A)+2")
+    field(INPA, "$(P)alpha.VAL CP")
+    field(CALC, "0.670*SIN(A*D2R)+2")
     field(OUT, "$(P)beam_offset PP")
 }
 
