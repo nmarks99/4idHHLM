@@ -65,3 +65,11 @@ record(calcout, "$(P)Ec_calc")
     field(CALC, "(A == 0) ? 21 : (A == 1) ? 10 : (A == 2) ? 27 : 0")
     field(OUT, "$(P)Ecritical PP")
 }
+
+record(calcout, "$(P)coarsePitchC1_calc")
+{
+    field(DESC, "C1 for coarsePitch pseudoMotor")
+    field(PINI, 0)
+    field(CALC, "1000.0/670.0")
+    field(OUT, "$(P)coarsePitchC1 PP")
+}

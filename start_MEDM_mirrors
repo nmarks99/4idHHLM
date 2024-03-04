@@ -3,7 +3,7 @@
 export EPICS_APP=`dirname ${BASH_SOURCE:-$0}`
 export EPICS_APP_ADL_DIR=${EPICS_APP}/4idHHLMApp/op/adl
 export DEFAULT_UI_FILE=${1:-${DEFAULT_UI_FILE:-hhlm.adl}}
-export UI_FILE_MACROS=${2:-"P=4idHHLM:,X1=m1,X2=m2,Y=m3,PM1=pm1,PM2=pm2"}
+export UI_FILE_MACROS=${2:-"P=4idHHLM:,X1=m1,X2=m2,Y=m3,PM1=lateral,PM2=coarsePitch"}
 
 source ${EPICS_APP}/setup_epics_common medm
 
