@@ -22,3 +22,4 @@ scan1Menu.sav
 iocBoot/*/softioc/logs
 .loglogin
 .iocsh_history
+.cache/

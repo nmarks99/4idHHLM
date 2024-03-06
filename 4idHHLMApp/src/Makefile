@@ -40,6 +40,7 @@ DBD_NAME = $(DBD_PREFIX)$(DBD_SUFFIX_$(OS_CLASS))
 
 DBD  += $(DBD_NAME).dbd
 $(DBD_NAME)_DBD += base.dbd
+$(DBD_NAME)_DBD += subs.dbd
 
 ifneq ($(OS_CLASS), vxWorks)
 ifdef ADCORE
@@ -593,6 +594,7 @@ ifeq ($(OS_CLASS), vxWorks)
   $(PROD_NAME)_SRCS  += $(DBD_NAME)_registerRecordDeviceDriver.cpp
 else
   $(PROD_NAME)_SRCS  += $(DBD_NAME)_registerRecordDeviceDriver.cpp $(PROD_NAME)Main.cpp
+  $(PROD_NAME)_SRCS  += subs.c
 endif
 
 #The following adds support from base/src/vxWorks

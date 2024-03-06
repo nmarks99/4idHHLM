@@ -73,3 +73,9 @@ record(calcout, "$(P)coarsePitchC1_calc")
     field(CALC, "1000.0/670.0")
     field(OUT, "$(P)coarsePitchC1 PP")
 }
+
+record(sub, "$(P)bender_lookup")
+{
+    field(INAM, "bender_lookup_init")
+    field(SNAM, "bender_lookup")
+}
