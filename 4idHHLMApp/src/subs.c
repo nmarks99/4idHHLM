@@ -86,9 +86,9 @@ ArrayShape load_table(const char *filename, double table[MAX_ROWS][MAX_COLS]) {
     return shape;
 }
 
-// Returns the encoder counts which should give a radius of curvature
+// Returns the table index which should give a radius of curvature
 // closest to the requested one
-double lookup_roc(double r, ArrayShape table_shape, double table[MAX_ROWS][MAX_COLS]) {
+int lookup_roc(double r, ArrayShape table_shape, double table[MAX_ROWS][MAX_COLS]) {
     int closest_index = 0;
     double dist = fabs(table[0][1] - r);
     for (int i = 0; i < table_shape.rows; i++) {
@@ -98,11 +98,7 @@ double lookup_roc(double r, ArrayShape table_shape, double table[MAX_ROWS][MAX_C
             dist = dist_tmp;
         }
     }
-    // printf("index = %d\n", closest_index);
-    // printf("dist = %lf\n", dist);
-    // printf("counts = %lf\n", table[closest_index][0]);
-    // printf("value = %lf\n", table[closest_index][1]);
-    return table[closest_index][0];
+    return closest_index;
 }
 
 static ArrayShape concave_shape = {.rows = 0, .columns = 0};
@@ -119,11 +115,15 @@ static long bender_lookup_init(struct subRecord *psub) {
 }
 
 static long bender_lookup(struct subRecord *psub) {
+    int index = 0;
     if (psub->a >= 0.0) {
-        psub->val = lookup_roc(psub->a, concave_shape, concave_table);
+        index = lookup_roc(psub->a, concave_shape, concave_table);
+        psub->val = concave_table[index][0];
     } else {
-        psub->val = lookup_roc(psub->a, convex_shape, convex_table);
+        index = lookup_roc(psub->a, convex_shape, convex_table);
+        psub->val = convex_table[index][0];
     }
+    // TODO: dbPutField RoCTarget.VAL = table[index][1]
     return 0;
 }
 

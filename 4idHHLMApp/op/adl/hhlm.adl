@@ -5,9 +5,9 @@ file {
 }
 display {
 	object {
-		x=223
-		y=254
-		width=513
+		x=1944
+		y=764
+		width=735
 		height=355
 	}
 	clr=14
@@ -136,8 +136,8 @@ rectangle {
 	object {
 		x=0
 		y=0
-		width=513
-		height=30
+		width=736
+		height=32
 	}
 	"basic attribute" {
 		clr=0
@@ -157,9 +157,9 @@ text {
 }
 polyline {
 	object {
-		x=-4
+		x=-3
 		y=30
-		width=517
+		width=738
 		height=3
 	}
 	"basic attribute" {
@@ -167,8 +167,8 @@ polyline {
 		width=3
 	}
 	points {
-		(-3,31)
-		(511,31)
+		(-2,31)
+		(733,31)
 	}
 }
 "text entry" {
@@ -605,7 +605,7 @@ rectangle {
 }
 "related display" {
 	object {
-		x=420
+		x=635
 		y=320
 		width=86
 		height=28
@@ -725,7 +725,7 @@ rectangle {
 }
 "text update" {
 	object {
-		x=440
+		x=441
 		y=95
 		width=49
 		height=14
@@ -738,4 +738,115 @@ rectangle {
 	align="horiz. right"
 	limits {
 	}
+}
+"text entry" {
+	object {
+		x=430
+		y=280
+		width=100
+		height=25
+	}
+	control {
+		chan="$(P)RoCReq.VAL"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=425
+		y=210
+		width=81
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	textix="Bender (RoC)"
+}
+rectangle {
+	object {
+		x=420
+		y=205
+		width=190
+		height=135
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+}
+"choice button" {
+	object {
+		x=540
+		y=250
+		width=60
+		height=80
+	}
+	control {
+		chan="$(P)$(PM3).SPMG"
+		clr=31
+		bclr=20
+	}
+}
+"text update" {
+	object {
+		x=430
+		y=255
+		width=100
+		height=18
+	}
+	monitor {
+		chan="$(P)RoCTarget.VAL"
+		clr=54
+		bclr=3
+	}
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=530
+		y=175
+		width=84
+		height=14
+	}
+	monitor {
+		chan="$(P)BenderTargetCounts.VAL"
+		clr=54
+		bclr=3
+	}
+	align="horiz. right"
+	limits {
+	}
+}
+text {
+	object {
+		x=340
+		y=175
+		width=182
+		height=14
+	}
+	"basic attribute" {
+		clr=0
+	}
+	textix="Bender target counts:"
+	align="horiz. right"
+}
+text {
+	object {
+		x=440
+		y=235
+		width=80
+		height=15
+	}
+	"basic attribute" {
+		clr=54
+	}
+	textix="km"
+	align="horiz. centered"
 }

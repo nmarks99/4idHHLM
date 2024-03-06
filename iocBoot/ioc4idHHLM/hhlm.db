@@ -79,6 +79,11 @@ record(ao, "$(P)RoCReq")
     field(FLNK,"$(P)BenderLookup.PROC")
 }
 
+record(ai, "$(P)RoCTarget")
+{
+    field(DESC, "Nearest achievable RoC to RocReq")
+}
+
 record(ai, "$(P)BenderTargetCounts")
 {
     field(INP, "$(P)BenderLookup.VAL NPP")
