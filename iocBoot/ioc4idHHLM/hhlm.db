@@ -74,8 +74,20 @@ record(calcout, "$(P)coarsePitchC1_calc")
     field(OUT, "$(P)coarsePitchC1 PP")
 }
 
-record(sub, "$(P)bender_lookup")
+record(ao, "$(P)RoCReq")
 {
+    field(FLNK,"$(P)BenderLookup.PROC")
+}
+
+record(ai, "$(P)BenderTargetCounts")
+{
+    field(INP, "$(P)BenderLookup.VAL NPP")
+}
+
+record(sub, "$(P)BenderLookup")
+{
+    field(INPA, "$(P)RoCReq.VAL")
     field(INAM, "bender_lookup_init")
     field(SNAM, "bender_lookup")
+    field(FLNK, "$(P)BenderTargetCounts.PROC")
 }

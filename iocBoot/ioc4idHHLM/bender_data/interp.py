@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 '''
 Generates concave.csv and convex.csv
 with interpolated values between the measured values
@@ -6,6 +7,8 @@ in bender.csv
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.interpolate import interp1d
+
+SAVE = False
 
 data = np.loadtxt("./bender.csv", delimiter=",")
 index = data[:,0]
@@ -24,7 +27,6 @@ roc_concave = data[:,3][0:7]
 f_concave = interp1d(ucounts_concave, roc_concave, kind="cubic")
 x_fit_concave = np.linspace(ucounts_concave[0], ucounts_concave[-1], 100)
 y_fit_concave = [f_concave(xi) for xi in x_fit_concave]
-np.savetxt("concave.csv", np.column_stack([x_fit_concave, y_fit_concave]), delimiter=",")
 
 fig1, ax1 = plt.subplots()
 ax1.plot(ucounts_concave, roc_concave, "bo", label="measured")
@@ -43,7 +45,10 @@ roc_convex = data[:,3][8:]
 f_convex = interp1d(ucounts_convex, roc_convex, kind="cubic")
 x_fit_convex = np.linspace(ucounts_convex[0], ucounts_convex[-1], 100)
 y_fit_convex = [f_convex(xi) for xi in x_fit_convex]
-np.savetxt("convex.csv", np.column_stack([x_fit_convex, y_fit_convex]), delimiter=",")
+
+if SAVE:
+    np.savetxt("concave.csv", np.column_stack([x_fit_concave, y_fit_concave]), delimiter=",")
+    np.savetxt("convex.csv", np.column_stack([x_fit_convex, y_fit_convex]), delimiter=",")
 
 fig2, ax2 = plt.subplots()
 ax2.plot(ucounts_convex, roc_convex, "bo", label="measured")

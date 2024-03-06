@@ -1,12 +1,12 @@
-#include <dbDefs.h>
-#include <subRecord.h>
 #include <ctype.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
-#include <registryFunction.h>
+#include <dbDefs.h>
 #include <epicsExport.h>
+#include <math.h>
+#include <registryFunction.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <subRecord.h>
 
 #define MAX_ROWS 1000
 #define MAX_COLS 10
@@ -58,23 +58,23 @@ int split_csv_string(const char *instring, double *array) {
 // each line by comma, converting to double,
 // and storing in the table array
 ArrayShape load_table(const char *filename, double table[MAX_ROWS][MAX_COLS]) {
-    
-    ArrayShape shape = {.rows=0, .columns=0};
+
+    ArrayShape shape = {.rows = 0, .columns = 0};
     FILE *fp = fopen(filename, "r");
 
     if (fp == NULL) {
         perror("Error opening file\n");
         return shape;
     }
-    
+
     char buff[MAX_ROW_LENGTH];
     int row = 0;
     int col = 0;
-    while(fgets(buff, sizeof(buff), fp) != NULL) {
+    while (fgets(buff, sizeof(buff), fp) != NULL) {
         col = split_csv_string(buff, table[row]);
         row += 1;
     }
-    
+
     if (!feof(fp)) {
         perror("Error reading, did not reach end of file");
     }
@@ -98,30 +98,34 @@ double lookup_roc(double r, ArrayShape table_shape, double table[MAX_ROWS][MAX_C
             dist = dist_tmp;
         }
     }
-    printf("index = %d\n", closest_index);
-    printf("dist = %lf\n", dist);
-    printf("value = %lf\n", table[closest_index][1]);
+    // printf("index = %d\n", closest_index);
+    // printf("dist = %lf\n", dist);
+    // printf("counts = %lf\n", table[closest_index][0]);
+    // printf("value = %lf\n", table[closest_index][1]);
     return table[closest_index][0];
 }
 
-
-static ArrayShape concave_shape = {.rows=0,.columns=0};
-static ArrayShape convex_shape = {.rows=0,.columns=0};
+static ArrayShape concave_shape = {.rows = 0, .columns = 0};
+static ArrayShape convex_shape = {.rows = 0, .columns = 0};
 
 static long bender_lookup_init(struct subRecord *psub) {
-    // psub->val = psub->a * 2;
     concave_shape = load_table("./bender_data/concave.csv", concave_table);
-    printf("Loaded concave bender lookup table with shape (%lu,%lu)\n", concave_shape.rows, concave_shape.columns);
-    convex_shape = load_table("./bender_data/concave.csv", convex_table);
-    printf("Loaded convex bender lookup table with shape (%lu,%lu)\n", convex_shape.rows, convex_shape.columns);
+    printf("Loaded concave bender lookup table with shape (%lu,%lu)\n", concave_shape.rows,
+           concave_shape.columns);
+    convex_shape = load_table("./bender_data/convex.csv", convex_table);
+    printf("Loaded convex bender lookup table with shape (%lu,%lu)\n", convex_shape.rows,
+           convex_shape.columns);
     return 0;
 }
 
 static long bender_lookup(struct subRecord *psub) {
-    // psub->val = psub->a * 2;
-    printf("Concave shape: (%lu,%lu)\n", concave_shape.rows, concave_shape.columns);
-    printf("Convex shape: (%lu,%lu)\n", convex_shape.rows, convex_shape.columns);
+    if (psub->a >= 0.0) {
+        psub->val = lookup_roc(psub->a, concave_shape, concave_table);
+    } else {
+        psub->val = lookup_roc(psub->a, convex_shape, convex_table);
+    }
     return 0;
 }
+
 epicsRegisterFunction(bender_lookup_init);
 epicsRegisterFunction(bender_lookup);
