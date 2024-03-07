@@ -103,23 +103,19 @@ int lookup_roc(double r, ArrayShape table_shape, double table[MAX_ROWS][MAX_COLS
     return closest_index;
 }
 
+
 static ArrayShape concave_shape = {.rows = 0, .columns = 0};
 static ArrayShape convex_shape = {.rows = 0, .columns = 0};
-
-// dbAddr paddr_v2;
-// char pname_v2[] = "nam:value2.VAL";
-// dbNameToAddr(pname_v2, &paddr_v2);
-// double val2 = 0;
-// dbGetField(&paddr_v1, DBR_DOUBLE, &val1, NULL, NULL, NULL);
-
 static dbAddr paddr_roc;
 static char pname_roc[] = "4idHHLM:RoCTarget.VAL";
 
 static long bender_lookup_init(struct subRecord *psub) {
+
+    // Load lookup tables in iocBoot/ioc4idHHLM/bender_data into arrays
     concave_shape = load_table("./bender_data/concave.csv", concave_table);
+    convex_shape = load_table("./bender_data/convex.csv", convex_table);
     printf("Loaded concave bender lookup table with shape (%lu,%lu)\n", concave_shape.rows,
            concave_shape.columns);
-    convex_shape = load_table("./bender_data/convex.csv", convex_table);
     printf("Loaded convex bender lookup table with shape (%lu,%lu)\n", convex_shape.rows,
            convex_shape.columns);
     
@@ -129,8 +125,10 @@ static long bender_lookup_init(struct subRecord *psub) {
     return 0;
 }
 
-
 static long bender_lookup(struct subRecord *psub) {
+    // "psub->a" is the requested radius of curvature
+    // use concave table for positive RoC and convex for negative
+    // dbPutField the nearest RoC to 4idHHLM:RoCTarget.VAL
     int index = 0;
     if (psub->a >= 0.0) {
         index = lookup_roc(psub->a, concave_shape, concave_table);
