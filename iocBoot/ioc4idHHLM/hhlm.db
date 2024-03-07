@@ -77,11 +77,13 @@ record(calcout, "$(P)coarsePitchC1_calc")
 record(ao, "$(P)RoCReq")
 {
     field(FLNK,"$(P)BenderLookup.PROC")
+    field(PREC, 2)
 }
 
 record(ai, "$(P)RoCTarget")
 {
     field(DESC, "Nearest achievable RoC to RocReq")
+    field(PREC, 2)
 }
 
 record(ai, "$(P)BenderTargetCounts")

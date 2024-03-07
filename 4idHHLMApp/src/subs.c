@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <subRecord.h>
+#include <dbAccess.h>
+#include <dbFldTypes.h>
 
 #define MAX_ROWS 1000
 #define MAX_COLS 10
@@ -104,6 +106,15 @@ int lookup_roc(double r, ArrayShape table_shape, double table[MAX_ROWS][MAX_COLS
 static ArrayShape concave_shape = {.rows = 0, .columns = 0};
 static ArrayShape convex_shape = {.rows = 0, .columns = 0};
 
+// dbAddr paddr_v2;
+// char pname_v2[] = "nam:value2.VAL";
+// dbNameToAddr(pname_v2, &paddr_v2);
+// double val2 = 0;
+// dbGetField(&paddr_v1, DBR_DOUBLE, &val1, NULL, NULL, NULL);
+
+static dbAddr paddr_roc;
+static char pname_roc[] = "4idHHLM:RoCTarget.VAL";
+
 static long bender_lookup_init(struct subRecord *psub) {
     concave_shape = load_table("./bender_data/concave.csv", concave_table);
     printf("Loaded concave bender lookup table with shape (%lu,%lu)\n", concave_shape.rows,
@@ -111,19 +122,27 @@ static long bender_lookup_init(struct subRecord *psub) {
     convex_shape = load_table("./bender_data/convex.csv", convex_table);
     printf("Loaded convex bender lookup table with shape (%lu,%lu)\n", convex_shape.rows,
            convex_shape.columns);
+    
+    // Connect to the RoCTarget record
+    dbNameToAddr(pname_roc, &paddr_roc);
+
     return 0;
 }
+
 
 static long bender_lookup(struct subRecord *psub) {
     int index = 0;
     if (psub->a >= 0.0) {
         index = lookup_roc(psub->a, concave_shape, concave_table);
         psub->val = concave_table[index][0];
+        double roc = concave_table[index][1];
+        dbPutField(&paddr_roc, DBR_DOUBLE, &roc, 1);
     } else {
         index = lookup_roc(psub->a, convex_shape, convex_table);
         psub->val = convex_table[index][0];
+        double roc = convex_table[index][1];
+        dbPutField(&paddr_roc, DBR_DOUBLE, &roc, 1);
     }
-    // TODO: dbPutField RoCTarget.VAL = table[index][1]
     return 0;
 }
 
