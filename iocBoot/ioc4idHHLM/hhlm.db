@@ -76,25 +76,31 @@ record(calcout, "$(P)coarsePitchC1_calc")
 
 record(ao, "$(P)RoCReq")
 {
-    field(FLNK,"$(P)BenderLookup.PROC")
+    field(FLNK,"$(P)GetTargetCounts.PROC")
     field(PREC, 2)
 }
 
-record(ai, "$(P)RoCTarget")
+record(ai, "$(P)BenderTargetRoC")
 {
-    field(DESC, "Nearest achievable RoC to RocReq")
+    field(DESC, "Nearest achievable RoC to RoCReq")
     field(PREC, 2)
 }
 
 record(ai, "$(P)BenderTargetCounts")
 {
-    field(INP, "$(P)BenderLookup.VAL NPP")
+    field(DESC, "Counts which give BenderTargetRoC")
+    field(INP, "$(P)GetTargetCounts.VAL NPP")
 }
 
-record(sub, "$(P)BenderLookup")
+record(sub, "$(P)BenderLookupInit")
+{
+    field(SNAM, "bender_lookup_init")
+    field(PINI, 1)
+}
+
+record(sub, "$(P)GetTargetCounts")
 {
     field(INPA, "$(P)RoCReq.VAL")
-    field(INAM, "bender_lookup_init")
-    field(SNAM, "bender_lookup")
+    field(SNAM, "lookup_roc")
     field(FLNK, "$(P)BenderTargetCounts.PROC")
 }
