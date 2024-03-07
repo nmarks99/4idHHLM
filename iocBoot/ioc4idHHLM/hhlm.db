@@ -71,7 +71,7 @@ record(calcout, "$(P)coarsePitchC1_calc")
     field(DESC, "C1 for coarsePitch pseudoMotor")
     field(PINI, 0)
     field(CALC, "1000.0/670.0")
-    field(OUT, "$(P)coarsePitchC1 PP")
+    field(OUT, "$(P)mir1:coarsePitchC1 PP")
 }
 
 record(ao, "$(P)RoCReq")

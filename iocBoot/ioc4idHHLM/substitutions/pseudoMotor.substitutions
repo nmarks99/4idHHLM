@@ -1,18 +1,21 @@
-# Pseudo-motors to turn the two lateral stages on IRM and ORM2 into 
-# lateral (SUM) and pitch (DIFF) axes.  The pitch motor is a coarse pitch. Finer
+# Pseudo-motors to turn the two mir1:lateral stages on IRM and ORM2 into 
+# mir1:lateral (SUM) and pitch (DIFF) axes.  The pitch motor is a coarse pitch. Finer
 # pitch control is does with PI piezos
 
 file "$(MOTOR)/motorApp/Db/pseudoMotor.db"
 {
 pattern
-{M,           	DINP,                    	OUT,                     	RDBL,                          		STOO,    			DESC, 		EGU, 	DIR, VELO, VBAS, ACCL, BDST, BVEL, BACC, MRES,  RRES, PREC, DHLM, DLLM}
-{lateral, 		"4idHHLM:pm:Done NPP NMS", 	"4idHHLM:lateralDVAL.VAL PP MS", 	"4idHHLM:pm:Readback.G NPP NMS", 	"4idHHLM:pm:Stop PP MS", 	"lateral",        mm,  	Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,    6,    2, -2}
-{coarsePitch, 		"4idHHLM:pm:Done NPP NMS", 	"4idHHLM:coarsePitchDVAL.VAL PP MS", 	"4idHHLM:pm:Readback.H NPP NMS", 	"4idHHLM:pm:Stop PP MS",   	"coarse pitch",     	mrad,  	Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,    8,    2, -2}
+{M,           		DINP,                    	OUT,                     	RDBL,                          		STOO,    			DESC, 		EGU, 	DIR, VELO, VBAS, ACCL, BDST, BVEL, BACC, MRES,  RRES, PREC, DHLM, DLLM}
+{mir1:lateral, 			"4idHHLM:mir1:pm:Done NPP NMS", 	"4idHHLM:mir1:lateralDVAL.VAL PP MS", 	"4idHHLM:mir1:pm:Readback.G NPP NMS", 	"4idHHLM:mir1:pm:Stop PP MS", 	"mir1:lateral",        mm,  	Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,    6,    2, -2}
+{mir1:coarsePitch, 		"4idHHLM:mir1:pm:Done NPP NMS", 	"4idHHLM:mir1:coarsePitchDVAL.VAL PP MS", 	"4idHHLM:mir1:pm:Readback.H NPP NMS", 	"4idHHLM:mir1:pm:Stop PP MS",   	"coarse pitch",     	mrad,  	Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,    8,    2, -2}
+{mir2:curvature, 		"4idHHLM:mir2:pm:Done NPP NMS", 	"4idHHLM:mir2:curvatureDVAL.VAL PP MS", 	"4idHHLM:mir2:pm:Readback.G NPP NMS", 	"4idHHLM:mir2:pm:Stop PP MS", 	"curvature",        mm,  	Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,    6,    2, -2}
+{mir2:elipticity, 		"4idHHLM:mir2:pm:Done NPP NMS", 	"4idHHLM:mir2:elipticityDVAL.VAL PP MS", 	"4idHHLM:mir2:pm:Readback.H NPP NMS", 	"4idHHLM:mir2:pm:Stop PP MS", 	"elipticity",        mm,  	Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,    6,    2, -2}
 }
 
 file "$(MOTOR)/motorApp/Db/sumDiff2D.db"
 {
 pattern
-{T,   		SUM, 		DIFF,      	    M1DRV,     		M1RBV,    	M2DRV,    	M2RBV,    	M1STOP,    	M1DONE,    	M2STOP,    	M2DONE,  	PREC}
-{pm:,  		lateral,  		coarsePitch,    		    m1.VAL, 		m1.RBV,  	m2.VAL, 	m2.RBV,  	m1.STOP,  	m1.DMOV,  	m2.STOP,  	m2.DMOV,    8}
+{T,   		SUM, 			DIFF,      	    		M1DRV,     		M1RBV,    	M2DRV,    	M2RBV,    	M1STOP,    	M1DONE,    	M2STOP,    	M2DONE,  PREC}
+{mir1:pm:,  		mir1:lateral,  		mir1:coarsePitch,    	    	m1.VAL, 		m1.RBV,  	m2.VAL, 	m2.RBV,  	m1.STOP,  	m1.DMOV,  	m2.STOP,  	m2.DMOV,    8}
+{mir2:pm:,  		mir2:curvature,  		mir2:elipticity,    		    	m4.VAL, 		m4.RBV,  	m5.VAL, 	m5.RBV,  	m4.STOP,  	m4.DMOV,  	m5.STOP,  	m5.DMOV,    8}
 }
