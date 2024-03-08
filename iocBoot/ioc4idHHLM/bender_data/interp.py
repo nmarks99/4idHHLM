@@ -8,8 +8,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 from scipy.interpolate import interp1d
 
-# set to True to save interpolated data to CSV
-SAVE = False 
+N_POINTS = 100 # total number of interpolated values to generate
+SAVE = False   # save interpolated data to CSV
 
 # load the raw data and plot it
 data = np.loadtxt("./bender.csv", delimiter=",")
@@ -26,7 +26,7 @@ ucounts_concave = data[:,1][0:7]
 ucounts_concave = ucounts_concave - data[7][1]
 roc_concave = data[:,3][0:7]
 f_concave = interp1d(ucounts_concave, roc_concave, kind="cubic")
-x_fit_concave = np.linspace(ucounts_concave[0], ucounts_concave[-1], 100)
+x_fit_concave = np.linspace(ucounts_concave[0], ucounts_concave[-1], N_POINTS)
 y_fit_concave = [f_concave(xi) for xi in x_fit_concave]
 fig1, ax1 = plt.subplots()
 ax1.plot(ucounts_concave, roc_concave, "bo", label="measured")
@@ -43,7 +43,7 @@ ucounts_convex = data[:,1][8:]
 ucounts_convex = ucounts_convex - data[7][1]
 roc_convex = data[:,3][8:]
 f_convex = interp1d(ucounts_convex, roc_convex, kind="cubic")
-x_fit_convex = np.linspace(ucounts_convex[0], ucounts_convex[-1], 100)
+x_fit_convex = np.linspace(ucounts_convex[0], ucounts_convex[-1], N_POINTS)
 y_fit_convex = [f_convex(xi) for xi in x_fit_convex]
 fig2, ax2 = plt.subplots()
 ax2.plot(ucounts_convex, roc_convex, "bo", label="measured")

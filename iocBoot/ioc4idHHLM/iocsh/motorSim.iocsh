@@ -1,5 +1,5 @@
 epicsEnvSet("INSTANCE", "motorSim")
-epicsEnvSet("NUM_AXES", "5")
+epicsEnvSet("NUM_AXES", "6")
 epicsEnvSet("SUB", "./substitutions/motorSim.substitutions")
 motorSimCreate($(CONTROLLER=0), 0, $(LOW_LIM=-32000), $(HIGH_LIM=32000), $(HOME_POS=0), 1, $(NUM_AXES=1))
 drvAsynMotorConfigure("$(INSTANCE)$(CONTROLLER=0)", "$(INSTANCE)", $(CONTROLLER=0), $(NUM_AXES=1))
