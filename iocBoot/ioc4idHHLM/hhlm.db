@@ -53,7 +53,7 @@ record(calcout, "$(P)beam_offset_calc")
 record(calcout, "$(P)Y_calc")
 {
     field(INPA, "$(P)stripe.VAL")
-    field(INPB, "0") # Rh position
+    field(INPB, "0") # TODO: this should be Rh position
     field(CALC, "(A*11)+B")
     field(OUT, "$(P)$(Y).VAL CA")
 }
@@ -86,21 +86,30 @@ record(ai, "$(P)BenderTargetRoC")
     field(PREC, 2)
 }
 
-record(ai, "$(P)BenderTargetCounts")
+record(calcout, "$(P)SetBenderTargetCounts")
 {
-    field(DESC, "Counts which give BenderTargetRoC")
-    field(INP, "$(P)GetTargetCounts.VAL NPP")
+    field(INPA, "$(P)GetTargetCounts.VAL")
+    field(CALC, "A")
+    field(OUT, "$(P)mir2:curvature PP")
 }
 
+
+## Subroutines are defined in 4idHHLM/4idHHLMApp/src/subs.c
+
+# Loads the interpolated CSV data from iocBoot/ioc4idHHLM/bender_data/
+# into two arrays in code. Only runs once at IOC init
 record(sub, "$(P)BenderLookupInit")
 {
     field(SNAM, "bender_lookup_init")
     field(PINI, 1)
 }
 
+# looks up encoder counts which should yield RoC
+# closest to the requested RoC and stores the counts
+# in the VAL field.
 record(sub, "$(P)GetTargetCounts")
 {
     field(INPA, "$(P)RoCReq.VAL")
     field(SNAM, "lookup_roc")
-    field(FLNK, "$(P)BenderTargetCounts.PROC")
+    field(FLNK, "$(P)SetBenderTargetCounts.PROC")
 }
