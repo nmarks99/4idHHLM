@@ -89,13 +89,28 @@ ArrayShape load_table(const char *filename, double table[MAX_ROWS][MAX_COLS]) {
     return shape;
 }
 
-// Returns the table index which should give a radius of curvature
-// closest to the requested one
+// Searches for the radius of curvature value closest to "r" and
+// returns the index of its location
 int find_roc(double r, ArrayShape table_shape, double table[MAX_ROWS][MAX_COLS]) {
     int closest_index = 0;
     double dist = fabs(table[0][1] - r);
     for (int i = 0; i < table_shape.rows; i++) {
-        double dist_tmp = fabs(table[i][1] - r);
+        const double dist_tmp = fabs(table[i][1] - r);
+        if (dist_tmp < dist) {
+            closest_index = i;
+            dist = dist_tmp;
+        }
+    }
+    return closest_index;
+}
+
+// Searches for the counts value in the table closest to "c" and
+// returns the index of its location
+int find_counts(double c, ArrayShape table_shape, double table[MAX_ROWS][MAX_COLS]) {
+    int closest_index = 0;
+    double dist = fabs(table[0][0] - c);
+    for (int i = 0; i < table_shape.rows; i++) {
+        const double dist_tmp = fabs(table[i][0] - c);
         if (dist_tmp < dist) {
             closest_index = i;
             dist = dist_tmp;
@@ -106,8 +121,8 @@ int find_roc(double r, ArrayShape table_shape, double table[MAX_ROWS][MAX_COLS])
 
 static ArrayShape concave_shape = {.rows = 0, .columns = 0};
 static ArrayShape convex_shape = {.rows = 0, .columns = 0};
-static dbAddr paddr_roc;
-static const char pname_roc[] = "4idHHLM:BenderTargetRoC.VAL";
+// static dbAddr paddr_roc;
+// static const char pname_roc[] = "4idHHLM:BenderTargetRoC.VAL";
 static bool INITIALIZED = false;
 
 static long bender_lookup_init(struct subRecord *psub) {
@@ -122,7 +137,7 @@ static long bender_lookup_init(struct subRecord *psub) {
                convex_shape.columns);
 
         // Connect to the RoCTarget record
-        dbNameToAddr(pname_roc, &paddr_roc);
+        // dbNameToAddr(pname_roc, &paddr_roc);
 
         INITIALIZED = true;
     }
@@ -130,24 +145,42 @@ static long bender_lookup_init(struct subRecord *psub) {
     return 0;
 }
 
+static long lookup_counts(struct subRecord *psub) {
+    // "psub->a" is the encoder counts of the curvature pseudomotor
+    int index = 0;
+    if (psub->a >= 0) {
+        index = find_counts(psub->a, convex_shape, convex_table);
+        psub->val = convex_table[index][1];
+    } else {
+        //concave
+        index = find_counts(psub->a, concave_shape, concave_table);
+        psub->val = concave_table[index][1];
+    }
+
+    return 0;
+}
+
+
 static long lookup_roc(struct subRecord *psub) {
     // "psub->a" is the requested radius of curvature
     // use concave table for positive RoC and convex for negative
     // dbPutField the nearest RoC to 4idHHLM:RoCTarget.VAL
+    // FIX: psub->a == 0 should set counts to zero (-407km point)
     int index = 0;
     if (psub->a >= 0.0) {
         index = find_roc(psub->a, concave_shape, concave_table);
         psub->val = concave_table[index][0];
-        const double roc = concave_table[index][1];
-        dbPutField(&paddr_roc, DBR_DOUBLE, &roc, 1);
+        // const double roc = concave_table[index][1];
+        // dbPutField(&paddr_roc, DBR_DOUBLE, &roc, 1);
     } else {
         index = find_roc(psub->a, convex_shape, convex_table);
         psub->val = convex_table[index][0];
-        const double roc = convex_table[index][1];
-        dbPutField(&paddr_roc, DBR_DOUBLE, &roc, 1);
+        // const double roc = convex_table[index][1];
+        // dbPutField(&paddr_roc, DBR_DOUBLE, &roc, 1);
     }
     return 0;
 }
 
 epicsRegisterFunction(bender_lookup_init);
 epicsRegisterFunction(lookup_roc);
+epicsRegisterFunction(lookup_counts);

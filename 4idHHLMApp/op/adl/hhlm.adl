@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=2129
-		y=1112
+		x=2119
+		y=1104
 		width=633
 		height=452
 	}
@@ -347,7 +347,7 @@ text {
 		height=20
 	}
 	monitor {
-		chan="$(P)BenderTargetRoC.VAL"
+		chan="$(P)EstimatedRoC.VAL"
 		clr=54
 		bclr=3
 	}

@@ -94,8 +94,9 @@ record(calcout, "$(P)SetBenderTargetCounts")
 }
 
 
+##
 ## Subroutines are defined in 4idHHLM/4idHHLMApp/src/subs.c
-
+##
 # Loads the interpolated CSV data from iocBoot/ioc4idHHLM/bender_data/
 # into two arrays in code. Only runs once at IOC init
 record(sub, "$(P)BenderLookupInit")
@@ -112,4 +113,17 @@ record(sub, "$(P)GetTargetCounts")
     field(INPA, "$(P)RoCReq.VAL")
     field(SNAM, "lookup_roc")
     field(FLNK, "$(P)SetBenderTargetCounts.PROC")
+}
+
+record(sub, "$(P)GetEstimatedRoC")
+{
+    field(SCAN, "Passive")
+    field(INPA, "$(P)mir2:curvature.RBV PP")
+    field(SNAM, "lookup_counts")
+    field(FLNK, "$(P)EstimatedRoC.PROC")
+}
+
+record(ai, "$(P)EstimatedRoC")
+{
+    field(INP, "$(P)GetEstimatedRoC.VAL PP")
 }

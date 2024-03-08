@@ -1,2 +1,3 @@
 function(bender_lookup_init)
 function(lookup_roc)
+function(lookup_counts)
