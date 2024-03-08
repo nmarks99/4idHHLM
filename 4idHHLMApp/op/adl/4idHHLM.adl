@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/xxx/4idHHLMApp/op/adl/4idHHLM.adl"
-	version=030107
+	name="/net/s4dserv/xorApps/epics/synApps_6_3/ioc/4idHHLM/4idHHLMApp/op/adl/4idHHLM.adl"
+	version=030111
 }
 display {
 	object {
@@ -193,7 +193,7 @@ display {
 	display[7] {
 		label="Pseudo-motors"
 		name="topMotors4.adl"
-		args="P=4idHHLM:,M1=pm1,M2=pm2,M3=pm3,M4=pm4"
+		args="P=4idHHLM:,M1=mir1:lateral,M2=mir1:coarsePitch,M3=mir2:curvature,M4=mir2:elipticity"
 	}
 	display[8] {
 		label="motor status 16"
@@ -1664,7 +1664,6 @@ composite {
 	display[4] {
 		label="AD Top (prebuilts)"
 		name="ADTop.adl"
-		args=""
 	}
 	clr=0
 	bclr=63
