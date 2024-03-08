@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=2093
-		y=755
+		x=2083
+		y=747
 		width=894
 		height=436
 	}
@@ -2674,4 +2674,22 @@ rectangle {
 		fill="outline"
 		width=3
 	}
+}
+"related display" {
+	object {
+		x=560
+		y=120
+		width=30
+		height=25
+	}
+	display[0] {
+		label="Concave plot"
+		name="concave_plot.adl"
+	}
+	display[1] {
+		label="Convex plot"
+		name="convex_plot.adl"
+	}
+	clr=14
+	bclr=4
 }
