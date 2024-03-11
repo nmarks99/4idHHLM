@@ -170,7 +170,7 @@ QTabBar::tab:selected
 QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab">
           <property name="Fill" stdset="0">
@@ -846,6 +846,30 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
            <property name="margin">
             <number>10</number>
            </property>
+           <item row="3" column="2">
+            <widget class="caRelatedDisplay" name="carelateddisplay_49">
+             <property name="label">
+              <string notr="true">-</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
            <item row="2" column="1">
             <widget class="caRelatedDisplay" name="carelateddisplay_45">
              <property name="label">
@@ -1043,30 +1067,6 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="2">
-            <widget class="caRelatedDisplay" name="carelateddisplay_49">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
            <item row="1" column="3">
             <widget class="caRelatedDisplay" name="carelateddisplay_50">
              <property name="label">
@@ -1094,30 +1094,6 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
              <property name="args">
               <string>P=4idHHLM:,SLIT=Slit2H,mXp=m15,mXn=m16;P=4idHHLM:,SLIT=Slit2V,mXp=m13,mXn=m14;P=4idHHLM:,SLIT=Slit_2,H=Slit2H,mXp=m15,mXn=m16,V=Slit2V,mYp=m13,mYn=m14</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="2">
-            <widget class="caRelatedDisplay" name="carelateddisplay_48">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>
@@ -1455,7 +1431,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               </font>
              </property>
              <property name="label">
-              <string notr="true">-  Mirror   </string>
+              <string notr="true">-  Mirror  </string>
              </property>
              <property name="foreground">
               <color>
@@ -1567,6 +1543,39 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
              <property name="removeParent" stdset="0">
               <string>false</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="caRelatedDisplay" name="carelateddisplay_48">
+             <property name="label">
+              <string notr="true">-HHLM</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>HHLM</string>
+             </property>
+             <property name="files">
+              <string>hhlm.ui</string>
+             </property>
+             <property name="args">
+              <string>P=4idHHLM:,X1=m1,X2=m2,Y=m3,PI1=m4,B1=m5,B2=m6,PM1=mir1:lateral,PM2=mir1:coarsePitch,PM3=mir2:curvature</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
              </property>
             </widget>
            </item>
