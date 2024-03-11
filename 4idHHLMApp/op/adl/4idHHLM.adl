@@ -448,7 +448,9 @@ display {
 		args="P=4idHHLM:,Q=M1,mDn=m1,mUp=m2"
 	}
 	display[1] {
-		label=" "
+		label=" HHLM"
+		name="hhlm.adl"
+		args="P=4idHHLM:,X1=m1,X2=m2,Y=m3,PI1=m4,B1=m5,B2=m6,PM1=mir1:lateral,PM2=mir1:coarsePitch,PM3=mir2:curvature"
 	}
 	clr=0
 	bclr=17
