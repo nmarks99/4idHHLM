@@ -53,7 +53,7 @@ record(calcout, "$(P)beam_offset_calc")
 record(calcout, "$(P)Y_calc")
 {
     field(INPA, "$(P)stripe.VAL")
-    field(INPB, "0") # TODO: this should be Rh position
+    field(INPB, "0") # FIX: this should be Rh position
     field(CALC, "(A*11)+B")
     field(OUT, "$(P)$(Y).VAL CA")
 }
@@ -93,6 +93,13 @@ record(calcout, "$(P)SetBenderTargetCounts")
     field(OUT, "$(P)mir2:curvature PP")
 }
 
+# current estimated radius of curvature based on interpolated data
+record(ai, "$(P)EstimatedRoC")
+{
+    field(SCAN, "Passive")
+    field(INP, "$(P)GetEstimatedRoC.VAL")
+    field(PREC, 2)
+}
 
 ##
 ## Subroutines are defined in 4idHHLM/4idHHLMApp/src/subs.c
@@ -115,15 +122,14 @@ record(sub, "$(P)GetTargetCounts")
     field(FLNK, "$(P)SetBenderTargetCounts.PROC")
 }
 
+# looks up the radius of curvature that is closest to
+# cooresponding to the current encoder counts and stores
+# the RoC in the VAL field
 record(sub, "$(P)GetEstimatedRoC")
 {
     field(SCAN, "Passive")
-    field(INPA, "$(P)mir2:curvature.RBV PP")
+    field(INPA, "$(P)mir2:curvature.RBV CP")
     field(SNAM, "lookup_counts")
     field(FLNK, "$(P)EstimatedRoC.PROC")
 }
 
-record(ai, "$(P)EstimatedRoC")
-{
-    field(INP, "$(P)GetEstimatedRoC.VAL PP")
-}
