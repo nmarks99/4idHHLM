@@ -16,6 +16,6 @@ file "$(MOTOR)/motorApp/Db/sumDiff2D.db"
 {
 pattern
 {T,   		SUM, 			DIFF,      	    		M1DRV,     		M1RBV,    	M2DRV,    	M2RBV,    	M1STOP,    	M1DONE,    	M2STOP,    	M2DONE,  PREC}
-{mir1:pm:,  		mir1:lateral,  		mir1:coarsePitch,    	    	m1.VAL, 		m1.RBV,  	m2.VAL, 	m2.RBV,  	m1.STOP,  	m1.DMOV,  	m2.STOP,  	m2.DMOV,    8}
-{mir2:pm:,  		mir2:curvature,  		mir2:elipticity,    		    	m5.VAL, 		m5.RBV,  	m6.VAL, 	m6.RBV,  	m5.STOP,  	m5.DMOV,  	m6.STOP,  	m6.DMOV,    8}
+{mir1:pm:,  		mir1:lateral,  		mir1:coarsePitch,    	    	m3.VAL, 		m3.RBV,  	m4.VAL, 	m4.RBV,  	m3.STOP,  	m3.DMOV,  	m4.STOP,  	m4.DMOV,    8}
+{mir2:pm:,  		mir2:curvature,  		mir2:elipticity,    		    	m7.VAL, 		m7.RBV,  	m8.VAL, 	m8.RBV,  	m7.STOP,  	m7.DMOV,  	m8.STOP,  	m8.DMOV,    8}
 }
