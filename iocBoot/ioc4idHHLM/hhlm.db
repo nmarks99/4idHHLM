@@ -54,7 +54,7 @@ record(calcout, "$(P)Y_calc")
 {
     field(INPA, "$(P)stripe.VAL")
     field(INPB, "0") # FIX: this should be Rh position
-    field(CALC, "(A*11)+B")
+    field(CALC, "(A*1.0)+B") # TODO: change back to +11mm
     field(OUT, "$(P)$(Y).VAL CA")
 }
 

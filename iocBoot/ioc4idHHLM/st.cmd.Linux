@@ -12,7 +12,7 @@ dbLoadDatabase("../../dbd/ioc4idHHLMLinux.dbd")
 ioc4idHHLMLinux_registerRecordDeviceDriver(pdbbase)
 
 < settings.iocsh
-# < common.iocsh
+< common.iocsh
 
 # simulated motors for testing
 # < iocsh/motorSim.iocsh
@@ -21,11 +21,11 @@ ioc4idHHLMLinux_registerRecordDeviceDriver(pdbbase)
 < cmds/AcsMotion.cmd
 
 # load pseudomotors
-# dbLoadTemplate("substitutions/pseudoMotor.substitutions","P=$(PREFIX)")
-# doAfterIocInit("dbpf('4idHHLM:coarsePitchC1_calc.PROC','1')")
+dbLoadTemplate("substitutions/pseudoMotor.substitutions","P=$(PREFIX)")
+doAfterIocInit("dbpf('4idHHLM:coarsePitchC1_calc.PROC','1')")
 
 # Logic for bender lookup table, stripe selection, etc.
-# dbLoadRecords("./hhlm.db","P=$(PREFIX),Y=m1,X1=m3,X2=m4")
+dbLoadRecords("./hhlm.db","P=$(PREFIX),Y=m1,X1=m3,X2=m4")
 
 #- devIocStats
 dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=$(PREFIX)")
