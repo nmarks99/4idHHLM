@@ -12,13 +12,13 @@ dbLoadDatabase("../../dbd/ioc4idHHLMLinux.dbd")
 ioc4idHHLMLinux_registerRecordDeviceDriver(pdbbase)
 
 < settings.iocsh
-< common.iocsh
+# < common.iocsh
 
 # simulated motors for testing
-# < iocsh/motorSim.iocsh
+< iocsh/motorSim.iocsh
 
 # motors with ACS support
-< cmds/AcsMotion.cmd
+# < cmds/AcsMotion.cmd
 
 # load pseudomotors
 dbLoadTemplate("substitutions/pseudoMotor.substitutions","P=$(PREFIX)")
