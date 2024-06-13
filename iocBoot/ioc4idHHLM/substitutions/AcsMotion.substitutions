@@ -19,8 +19,8 @@ pattern
 {2,  "m$(N)",  "asynMotor",  ACS1,  2,       "X1",     mm,  Pos,   0.125,    .1,   1.0,     0,      1,     .2,    0.00005,      6,           500,        -500,    "", "Never", 0}
 {3,  "m$(N)",  "asynMotor",  ACS1,  3,       "X2",     mm,  Pos,   0.125,    .1,   1.0,     0,      1,     .2,    0.00005,      6,           500,        -500,    "", "Never", 0}
 # {4,  "m$(N)",  "asynMotor",  PI?,  6,  "fine pitch piezo", counts,  Pos,   1e5,    .1,   1e6,       0,      1,     .2,    1.00000,      8,     -14188558,   -15742400,    "", "Never", 0}
-{5,  "m$(N)",  "asynMotor",  ACS1,  6,  "US Bend", counts,  Pos,     1e5,    .1,   0.1,     0,      1,     .2,    1.00000,      8,     -14188558,   -15742400,    "", "Never", 0}
-{6,  "m$(N)",  "asynMotor",  ACS1,  7,  "DS Bend", counts,  Pos,     1e5,    .1,   0.1,     0,      1,     .2,    1.00000,      8,     -14277714,   -15833900,    "", "Never", 0}
+{5,  "m$(N)",  "asynMotor",  ACS1,  6,  "US Bend", counts,  Pos,     1e4,    .1,   0.1,     0,      1,     .2,    1.00000,      8,     -14188558,   -15742400,    "", "Never", 0}
+{6,  "m$(N)",  "asynMotor",  ACS1,  7,  "DS Bend", counts,  Pos,     1e4,    .1,   0.1,     0,      1,     .2,    1.00000,      8,     -14277714,   -15833900,    "", "Never", 0}
 }
 
 ### The feedback database is helpful for troubleshooting encoder problems

@@ -12,7 +12,7 @@ dbLoadDatabase("../../dbd/ioc4idHHLMLinux.dbd")
 ioc4idHHLMLinux_registerRecordDeviceDriver(pdbbase)
 
 < settings.iocsh
-# < common.iocsh
+< common.iocsh
 
 # simulated motors for testing
 # < iocsh/motorSim.iocsh
