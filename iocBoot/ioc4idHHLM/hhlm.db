@@ -77,6 +77,8 @@ record(calcout, "$(P)coarsePitchC1_calc")
 record(ao, "$(P)RoCReq")
 {
     field(FLNK,"$(P)GetTargetCounts.PROC")
+    field(DRVH, "16.0")
+    field(DRVH, "-16.0")
     field(PREC, 2)
 }
 
