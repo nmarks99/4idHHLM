@@ -30,7 +30,7 @@ SUPPORT=/APSshare/epics/synApps_6_3/support
 LOCAL_SUPPORT=/net/s4dserv/xorApps/epics/synApps_6_3/support
 EPICS_BASE=/APSshare/epics/base-7.0.8
 
-# MOTOR_ACSMOTION = $(LOCAL_SUPPORT)/motorAcsMotion
+MOTOR_ACSMOTION=$(LOCAL_SUPPORT)/motorAcsMotion
 
 # Specify the standard synApps configuration.
 -include $(SUPPORT)/configure/RELEASE

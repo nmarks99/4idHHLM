@@ -5,6 +5,11 @@ include $(TOP)/configure/CONFIG
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
 
+# EPICS base sorts libraries, which prevents motorAcsMotion from overriding
+# motor/modules/motorAcsMotion.  The following lines fix this, in theory.
+PROD_DEPLIB_DIRS = $(foreach word, $(INSTALL_LIB)/ \
+    $(dir $($*_DEPLIBS) $(PROD_DEPLIBS)), $(abspath $(word)))
+
 # For Kate Feng's implementation of devScaler.c, which uses Till
 # Straumann's basicIoOps.h to bridge any mismatch between endianness
 # of Joerger scaler hardware and endianness of processor.
