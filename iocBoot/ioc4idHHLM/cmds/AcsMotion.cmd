@@ -13,3 +13,16 @@ doAfterIocInit("dbpf('$(PREFIX)m2.ERES','0.00005')")
 doAfterIocInit("dbpf('$(PREFIX)m3.ERES','0.00005')")
 doAfterIocInit("dbpf('$(PREFIX)m5.ERES','1.0')")
 doAfterIocInit("dbpf('$(PREFIX)m6.ERES','1.0')")
+
+# Offsets for benders
+doAfterIocInit("dbpf('$(PREFIX)m5.OFF','14944600.0')")
+doAfterIocInit("dbpf('$(PREFIX)m5.FOFF','1')") # frozen
+doAfterIocInit("dbpf('$(PREFIX)m6.OFF','15033800.0')")
+doAfterIocInit("dbpf('$(PREFIX)m6.FOFF','1')") # frozen
+
+# Set use encoder = yes
+doAfterIocInit("dbpf('$(PREFIX)m1.UEIP','1')")
+doAfterIocInit("dbpf('$(PREFIX)m2.UEIP','1')")
+doAfterIocInit("dbpf('$(PREFIX)m3.UEIP','1')")
+doAfterIocInit("dbpf('$(PREFIX)m5.UEIP','1')")
+doAfterIocInit("dbpf('$(PREFIX)m6.UEIP','1')")
