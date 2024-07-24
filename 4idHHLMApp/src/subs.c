@@ -148,18 +148,24 @@ static long bender_lookup_init(struct subRecord *psub) {
 static long lookup_counts(struct subRecord *psub) {
     // "psub->a" is the encoder counts of the curvature pseudomotor
     int index = 0;
-    if (psub->a >= 0) {
-        index = find_counts(psub->a, convex_shape, convex_table);
-        psub->val = convex_table[index][1];
+
+    if (psub->a >= -50000 && psub->a <= 50000) {
+        // consider the mirror to be "flat" and set RoC to 999.0
+        psub->val = 999.0;
     } else {
-        //concave
-        index = find_counts(psub->a, concave_shape, concave_table);
-        psub->val = concave_table[index][1];
+        if (psub->a >= 0) {
+            // convex
+            index = find_counts(psub->a, convex_shape, convex_table);
+            psub->val = convex_table[index][1];
+        } else {
+            // concave
+            index = find_counts(psub->a, concave_shape, concave_table);
+            psub->val = concave_table[index][1];
+        }
     }
 
     return 0;
 }
-
 
 static long lookup_roc(struct subRecord *psub) {
     // "psub->a" is the requested radius of curvature

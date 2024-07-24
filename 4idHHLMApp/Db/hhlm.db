@@ -1,12 +1,19 @@
-
-# Selected stripe
+# Select stripe
 record(mbbo, "$(P)stripe")
 {
     field(PINI, 1)
-    field(ZRST, "Rh")
-    field(ONST, "Si")
-    field(TWST, "Pt")
+    field(ZRST, "Rh") # +11mm
+    field(ONST, "Si") #   0mm
+    field(TWST, "Pt") # -11mm
     field(FLNK, "$(P)stripe_fanout.PROC")
+}
+
+# determine which stripe from Y readback
+# FIX: currently between stripes is considered Si
+record(calcout, "$(P)current_stripe_calc")
+{
+    field(INPA, "$(P)$(Y).RBV CP")
+    field(CALC, "(A>=6 && A<=16) ? 0 : (A>=-5 && A<=5) ? 1 : (A>=-16 && A<=-6) ? 2 : 1")
 }
 
 record(ai, "$(P)Ecritical")
@@ -38,7 +45,7 @@ record(calcout, "$(P)alpha_calc")
 {
     field(INPA, "$(P)$(X1).RBV CP")
     field(INPB, "$(P)$(X2).RBV CP")
-    field(CALC, "R2D*ATAN(D2R*(A-B)/0.670)") # atan((X1-X2)/d)
+    field(CALC, "R2D*ATAN(D2R*(A-B)/670.0)") # atan((X1-X2)/d)
     field(OUT, "$(P)alpha PP")
 }
 
@@ -53,10 +60,10 @@ record(calcout, "$(P)beam_offset_calc")
 record(calcout, "$(P)Y_calc")
 {
     field(INPA, "$(P)stripe.VAL")
-    field(INPB, "0") # FIX: this should be Rh position
-    field(CALC, "(A*1.0)+B") # TODO: change back to +11mm
+    field(CALC, "(A == 0) ? 11 : (A == 1) ? 0 : (A == 2) ? -11 : 0")
     field(OUT, "$(P)$(Y).VAL CA")
 }
+
 
 # Sets critical energy $(P)Ecritical according to selected stripe
 record(calcout, "$(P)Ec_calc")
