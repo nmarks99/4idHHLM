@@ -1,16 +1,3 @@
-##########################################
-##### FMBO Motion Box 8 (ACS) - HHLM #####
-##########################################
-# ACS0 - Y       (YELLOW)
-# ACS2 - X1      (RED)
-# ACS3 - X2      (ORANGE)
-# ACS6 - bender1 (GREEN)
-# ACS7 - bender2 (BLUE)
-
-## Bender soft limits from metrology report
-# Upstream: -15742400, -14188558
-# Downstream: -15833900, -14277714
-
 file "$(MOTOR)/db/asyn_motor.db"
 {
 pattern

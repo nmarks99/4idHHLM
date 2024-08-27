@@ -1,6 +1,6 @@
 #---
 # Moxa serial port 1 config: 115200, N, 1, 8, H
-drvAsynIPPortConfigure("MOXA1", "192.168.127.254:4001", 0, 0, 0)
+drvAsynIPPortConfigure("MOXA1", "164.54.115.54:4001", 0, 0, 0)
 #
 asynOctetSetInputEos("MOXA1", -1, "\n")
 asynOctetSetOutputEos("MOXA1", -1, "\n")
@@ -18,4 +18,7 @@ PIE816Setup(1, 10)
 PIE816Config(0, "MOXA1", 0)
 #!var drvPIE816debug 4
 
-dbLoadTemplate("PI_E816.substitutions")
+# Load an asyn record for debugging
+dbLoadRecords("$(ASYN)/db/asynRecord.db","P=$(PREFIX),R=asyn_1,PORT=MOXA1,ADDR=0,OMAX=256,IMAX=256")
+
+# dbLoadTemplate("substitutions/PI_E816.substitutions", "P=$(PREFIX)")

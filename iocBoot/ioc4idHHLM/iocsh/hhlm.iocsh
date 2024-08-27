@@ -1,11 +1,36 @@
+##########################################
+##### FMBO Motion Box 8 (ACS) - HHLM #####
+##########################################
+# Closed loop steppers
+# Must set MRES = EFAC
+
+# ACS0 - Y       (YELLOW)
+# ACS2 - X1      (RED)
+# ACS3 - X2      (ORANGE)
+# ACS6 - bender1 (GREEN)
+# ACS7 - bender2 (BLUE)
+
+## Bender soft limits from metrology report
+# Upstream: -15742400, -14188558
+# Downstream: -15833900, -14277714
+
 # Load ACS support, it is build as a standalone module
 iocshLoad("$(MOTOR_ACSMOTION)/iocsh/ACS_Motion_tcp.iocsh", "INSTANCE=ACS1,IP_ADDR=164.54.115.62,NUM_AXES=8,IDLE_POLL=0.2")
 
 # Load motor records
-dbLoadTemplate("substitutions/AcsMotion.substitutions","P=$(PREFIX)")
+dbLoadTemplate("substitutions/AcsMotion_hhlm.substitutions","P=$(PREFIX)")
 
 # Load an asyn record for debugging
-dbLoadRecords("$(ASYN)/db/asynRecord.db","P=$(PREFIX),R=asyn_1,PORT=ACS1,ADDR=0,OMAX=256,IMAX=256")
+dbLoadRecords("$(ASYN)/db/asynRecord.db","P=$(PREFIX),R=hhlm_asyn,PORT=ACS1,ADDR=0,OMAX=256,IMAX=256")
+
+# load pseudomotors for lateral and course pitch motions
+dbLoadTemplate("substitutions/pseudoMotor.substitutions","P=$(PREFIX)")
+doAfterIocInit("dbpf('4idHHLM:coarsePitchC1_calc.PROC','1')")
+
+# Logic for bender lookup table, stripe selection, etc.
+dbLoadRecords("$(TOP)/db/hhlm.db","P=$(PREFIX),Y=m1,X1=m2,X2=m3")
+
+##################################################################
 
 # Set ERES to EFAC for each axis
 doAfterIocInit("dbpf('$(PREFIX)m1.ERES','0.00005')")
@@ -27,7 +52,11 @@ doAfterIocInit("dbpf('$(PREFIX)m5.FOFF','1')")
 doAfterIocInit("dbpf('$(PREFIX)m6.OFF','15033800.0')")
 doAfterIocInit("dbpf('$(PREFIX)m6.FOFF','1')")
 
-# Offsets for lateral stages #TODO: E_AOFFS instead?
+# Offsets for lateral stages
+# m2 limits: [319.3528, 330.2515]
+# m3 limits: [204.0248, 215.2069]
+# using mean of above limits for offset
+# TODO: E_AOFFS instead?
 doAfterIocInit("dbpf('$(PREFIX)m2.OFF','-324.8021')")
 doAfterIocInit("dbpf('$(PREFIX)m2.FOFF','1')")
 doAfterIocInit("dbpf('$(PREFIX)m3.OFF','-209.6158')")
