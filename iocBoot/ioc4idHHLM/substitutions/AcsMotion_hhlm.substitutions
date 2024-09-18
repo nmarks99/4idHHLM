@@ -17,8 +17,8 @@ pattern
 {m1,  ACS1,    0,    6,    2}
 {m2,  ACS1,    2,    6,    2}
 {m3,  ACS1,    3,    6,    2}
-{m5,  ACS1,    6,    6,    2}
-{m6,  ACS1,    7,    6,    2}
+{m4,  ACS1,    6,    6,    2}
+{m5,  ACS1,    7,    6,    2}
 }
 
 ### Uncomment the following to disable setting the position for axes with absolute encoders
@@ -29,6 +29,6 @@ pattern
 {m1,  ACS1,    0}
 {m2,  ACS1,    2}
 {m3,  ACS1,    3}
-{m5,  ACS1,    6}
-{m6,  ACS1,    7}
+{m4,  ACS1,    6}
+{m5,  ACS1,    7}
 }
