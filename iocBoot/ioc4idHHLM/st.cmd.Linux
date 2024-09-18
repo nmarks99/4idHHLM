@@ -20,10 +20,6 @@ ioc4idHHLMLinux_registerRecordDeviceDriver(pdbbase)
 # ACS/FMBO controlled motors for HHLM
 < iocsh/hhlm.iocsh
 
-# TODO: fine pitch piezos
-# Probably can go in hhlm.iocsh
-# < iocsh/PI_E816.iocsh
-
 # allstop, alldone
 dbLoadRecords("$(MOTOR)/db/motorUtil.db","P=$(PREFIX)")
 doAfterIocInit("motorUtilInit('$(PREFIX)')")
