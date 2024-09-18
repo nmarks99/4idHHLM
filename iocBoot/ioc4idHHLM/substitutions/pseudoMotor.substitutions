@@ -1,0 +1,21 @@
+# Pseudo-motors to turn the two mir:lateral stages on IRM and ORM2 into 
+# mir:lateral (SUM) and pitch (DIFF) axes.  The pitch motor is a coarse pitch. Finer
+# pitch control is does with PI piezos
+
+file "$(MOTOR)/motorApp/Db/pseudoMotor.db"
+{
+pattern
+{M,           		DINP,                    	OUT,                     	RDBL,                          		STOO,    			DESC, 		EGU, 	DIR, VELO, VBAS, ACCL, BDST, BVEL, BACC, MRES,  RRES, PREC, DHLM, DLLM}
+{mir:lateral, 			"4idHHLM:sd1:Done NPP NMS", 	"4idHHLM:mir:lateralDVAL.VAL PP MS", 	"4idHHLM:sd1:Readback.G NPP NMS", 	"4idHHLM:sd1:Stop PP MS", 	"Lateral",        mm,  	Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,    4,    500, -500}
+{mir:coarsePitch, 		"4idHHLM:sd1:Done NPP NMS", 	"4idHHLM:mir:coarsePitchDVAL.VAL PP MS", 	"4idHHLM:sd1:Readback.H NPP NMS", 	"4idHHLM:sd1:Stop PP MS",   	"Coarse pitch",     	mrad,  	Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,    4,    500, -500}
+{mir:curvature, 		"4idHHLM:sd2:Done NPP NMS", 	"4idHHLM:mir:curvatureDVAL.VAL PP MS", 	"4idHHLM:sd2:Readback.G NPP NMS", 	"4idHHLM:sd2:Stop PP MS", 	"Curvature",        counts,  	Pos,   1e5,    .1,   .1,    0,    1,   .1, 1.0,     1.0,    6,    7e5, -7e5}
+{mir:elipticity, 		"4idHHLM:sd2:Done NPP NMS", 	"4idHHLM:mir:elipticityDVAL.VAL PP MS", 	"4idHHLM:sd2:Readback.H NPP NMS", 	"4idHHLM:sd2:Stop PP MS", 	"Elipticity",        counts,  	Pos,   1e6,    .1,   .1,    0,    1,   .1, 1.0,     1.0,    6,    1e9, -1e9}
+}
+
+file "$(MOTOR)/motorApp/Db/sumDiff2D.db"
+{
+pattern
+{T,   		SUM, 			DIFF,      	    		M1DRV,     		M1RBV,    	M2DRV,    	M2RBV,    	M1STOP,    	M1DONE,    	M2STOP,    	M2DONE,  PREC}
+{sd1:,  		mir:lateral,  		mir:coarsePitch,    	    	m2.VAL, 		m2.RBV,  	m3.VAL, 	m3.RBV,  	m2.STOP,  	m2.DMOV,  	m3.STOP,  	m3.DMOV,    8}
+{sd2:,  		mir:curvature,  		mir:elipticity,    		    	m5.VAL, 		m5.RBV,  	m6.VAL, 	m6.RBV,  	m5.STOP,  	m5.DMOV,  	m6.STOP,  	m6.DMOV,    8}
+}
