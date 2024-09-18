@@ -36,21 +36,21 @@ dbLoadRecords("$(TOP)/db/hhlm.db","P=$(PREFIX),Y=m1,X1=m2,X2=m3")
 doAfterIocInit("dbpf('$(PREFIX)m1.ERES','0.00005')")
 doAfterIocInit("dbpf('$(PREFIX)m2.ERES','0.00005')")
 doAfterIocInit("dbpf('$(PREFIX)m3.ERES','0.00005')")
+doAfterIocInit("dbpf('$(PREFIX)m4.ERES','1.0')")
 doAfterIocInit("dbpf('$(PREFIX)m5.ERES','1.0')")
-doAfterIocInit("dbpf('$(PREFIX)m6.ERES','1.0')")
 
 # Set use encoder = yes
 doAfterIocInit("dbpf('$(PREFIX)m1.UEIP','1')")
 doAfterIocInit("dbpf('$(PREFIX)m2.UEIP','1')")
 doAfterIocInit("dbpf('$(PREFIX)m3.UEIP','1')")
+doAfterIocInit("dbpf('$(PREFIX)m4.UEIP','1')")
 doAfterIocInit("dbpf('$(PREFIX)m5.UEIP','1')")
-doAfterIocInit("dbpf('$(PREFIX)m6.UEIP','1')")
 
 # Offsets for benders
-doAfterIocInit("dbpf('$(PREFIX)m5.OFF','14944600.0')")
+doAfterIocInit("dbpf('$(PREFIX)m4.OFF','14944600.0')")
+doAfterIocInit("dbpf('$(PREFIX)m4.FOFF','1')")
+doAfterIocInit("dbpf('$(PREFIX)m5.OFF','15033800.0')")
 doAfterIocInit("dbpf('$(PREFIX)m5.FOFF','1')")
-doAfterIocInit("dbpf('$(PREFIX)m6.OFF','15033800.0')")
-doAfterIocInit("dbpf('$(PREFIX)m6.FOFF','1')")
 
 # Offsets for lateral stages
 # m2 limits: [319.3528, 330.2515]

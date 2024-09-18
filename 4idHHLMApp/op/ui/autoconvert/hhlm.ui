@@ -4978,7 +4978,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caLabel::IfNotZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).SET</string>
+                <string>$(PI1).SET</string>
             </property>
             <property name="text">
                 <string>Calib:</string>
@@ -5011,7 +5011,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).DESC</string>
+                <string>$(PI1).DESC</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -5091,7 +5091,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caGraphics::IfZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).DMOV</string>
+                <string>$(PI1).DMOV</string>
             </property>
         </widget>
         <widget class="caGraphics" name="caRectangle_38">
@@ -5133,7 +5133,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caGraphics::IfNotZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).LVIO</string>
+                <string>$(PI1).LVIO</string>
             </property>
         </widget>
         <widget class="caGraphics" name="caRectangle_39">
@@ -5175,7 +5175,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caGraphics::IfNotZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1)_able.VAL</string>
+                <string>$(PI1)_able.VAL</string>
             </property>
         </widget>
         <widget class="caGraphics" name="caRectangle_40">
@@ -5236,7 +5236,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caLabel::IfZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).DMOV</string>
+                <string>$(PI1).DMOV</string>
             </property>
             <property name="text">
                 <string>Moving</string>
@@ -5278,7 +5278,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caLabel::IfNotZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).SET</string>
+                <string>$(PI1).SET</string>
             </property>
             <property name="text">
                 <string>Calibrate</string>
@@ -5350,7 +5350,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>EPushButton::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1):scanParms.GO</string>
+                <string>$(PI1):scanParms.GO</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -5458,7 +5458,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>EPushButton::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1):scanParms.LOAD</string>
+                <string>$(PI1):scanParms.LOAD</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -5497,7 +5497,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>EPushButton::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).STOP</string>
+                <string>$(PI1).STOP</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -5578,7 +5578,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>EPushButton::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).TWR</string>
+                <string>$(PI1).TWR</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -5617,7 +5617,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).TWV</string>
+                <string>$(PI1).TWV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -5668,7 +5668,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>EPushButton::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).TWF</string>
+                <string>$(PI1).TWF</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -5707,7 +5707,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).VAL</string>
+                <string>$(PI1).VAL</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -5781,7 +5781,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caGraphics::IfNotZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).LLS</string>
+                <string>$(PI1).LLS</string>
             </property>
         </widget>
         <widget class="caGraphics" name="caRectangle_43">
@@ -5820,7 +5820,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caGraphics::IfNotZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).HLS</string>
+                <string>$(PI1).HLS</string>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_16">
@@ -5836,7 +5836,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).EGU</string>
+                <string>$(PI1).EGU</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -5932,7 +5932,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 </color>
             </property>
             <property name="text">
-                <string>($(P)$(PI1))</string>
+                <string>($(PI1))</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -5992,7 +5992,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caGraphics::IfNotZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).SET</string>
+                <string>$(PI1).SET</string>
             </property>
         </widget>
         <widget class="caGraphics" name="caRectangle_46">
@@ -6041,10 +6041,10 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <string>A!=0||B==7</string>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).SET</string>
+                <string>$(PI1).SET</string>
             </property>
             <property name="channelB">
-                <string>$(P)$(PI1).STAT</string>
+                <string>$(PI1).STAT</string>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_17">
@@ -6060,7 +6060,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).RBV</string>
+                <string>$(PI1).RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -6123,7 +6123,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caLabel::IfNotZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).LVIO</string>
+                <string>$(PI1).LVIO</string>
             </property>
             <property name="text">
                 <string>Soft limit</string>
@@ -6186,7 +6186,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <enum>caGraphics::IfNotZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1)_able.VAL</string>
+                <string>$(PI1)_able.VAL</string>
             </property>
         </widget>
         <widget class="caChoice" name="caChoice_3">
@@ -6199,7 +6199,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 </rect>
             </property>
             <property name="channel">
-                <string>$(P)$(PI1).SET</string>
+                <string>$(PI1).SET</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
