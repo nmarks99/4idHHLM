@@ -75,17 +75,17 @@ record(calcout, "$(P)Ec_calc")
 
 record(calcout, "$(P)coarsePitchC1_calc")
 {
-    field(DESC, "C1 for coarsePitch pseudoMotor")
+    field(DESC, "C1 for pitch pseudoMotor")
     field(PINI, 0)
     field(CALC, "1000.0/670.0")
-    field(OUT, "$(P)mir:coarsePitchC1 PP")
+    field(OUT, "$(P)$(MIR_PITCH) PP")
 }
 
 record(ao, "$(P)RoCReq")
 {
     field(FLNK,"$(P)GetTargetCounts.PROC")
-    field(DRVH, "16.0")
-    field(DRVH, "-16.0")
+    # field(DRVH, "16.0")
+    # field(DRVH, "-16.0")
     field(PREC, 2)
 }
 
@@ -99,7 +99,7 @@ record(calcout, "$(P)SetBenderTargetCounts")
 {
     field(INPA, "$(P)GetTargetCounts.VAL")
     field(CALC, "A")
-    field(OUT, "$(P)mir:curvature PP")
+    field(OUT, "$(P)$(MIR_CURV) PP")
 }
 
 # current estimated radius of curvature based on interpolated data
@@ -137,7 +137,7 @@ record(sub, "$(P)GetTargetCounts")
 record(sub, "$(P)GetEstimatedRoC")
 {
     field(SCAN, "Passive")
-    field(INPA, "$(P)mir:curvature.RBV CP")
+    field(INPA, "$(P)$(MIR_CURV).RBV CP")
     field(SNAM, "lookup_counts")
     field(FLNK, "$(P)EstimatedRoC.PROC")
 }

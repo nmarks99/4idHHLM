@@ -170,20 +170,21 @@ static long lookup_counts(struct subRecord *psub) {
 static long lookup_roc(struct subRecord *psub) {
     // "psub->a" is the requested radius of curvature
     // use concave table for positive RoC and convex for negative
-    // dbPutField the nearest RoC to 4idHHLM:RoCTarget.VAL
-    // FIX: psub->a == 0 should set counts to zero (-407km point)
-    int index = 0;
-    if (psub->a >= 0.0) {
-        index = find_roc(psub->a, concave_shape, concave_table);
-        psub->val = concave_table[index][0];
-        // const double roc = concave_table[index][1];
-        // dbPutField(&paddr_roc, DBR_DOUBLE, &roc, 1);
+    if ( (fabs(psub->a) >= 407) || (fabs(psub->a) <= 15) ) {
+        // if requested RoC is sufficiently large or small,
+        // set encoder counts to 0.0 == flat mirror
+        psub->val = 0.0;
     } else {
-        index = find_roc(psub->a, convex_shape, convex_table);
-        psub->val = convex_table[index][0];
-        // const double roc = convex_table[index][1];
-        // dbPutField(&paddr_roc, DBR_DOUBLE, &roc, 1);
+        int index = 0;
+        if (psub->a >= 0.0) {
+            index = find_roc(psub->a, concave_shape, concave_table);
+            psub->val = concave_table[index][0];
+        } else {
+            index = find_roc(psub->a, convex_shape, convex_table);
+            psub->val = convex_table[index][0];
+        }
     }
+
     return 0;
 }
 

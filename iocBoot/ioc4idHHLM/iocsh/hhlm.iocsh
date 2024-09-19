@@ -25,10 +25,10 @@ dbLoadRecords("$(ASYN)/db/asynRecord.db","P=$(PREFIX),R=hhlm_asyn,PORT=ACS1,ADDR
 
 # load pseudomotors for lateral and course pitch motions
 dbLoadTemplate("substitutions/pseudoMotor.substitutions","P=$(PREFIX)")
-doAfterIocInit("dbpf('4idHHLM:coarsePitchC1_calc.PROC','1')")
 
 # Logic for bender lookup table, stripe selection, etc.
-dbLoadRecords("$(TOP)/db/hhlm.db","P=$(PREFIX),Y=m1,X1=m2,X2=m3")
+dbLoadRecords("$(TOP)/db/hhlm.db","P=$(PREFIX),Y=m1,X1=m2,X2=m3,MIR_PITCH=pm2,MIR_CURV=pm3")
+# doAfterIocInit("dbpf('$(PREFIX)coarsePitchC1_calc.PROC','1')") # don't remember what this is...
 
 ##################################################################
 
