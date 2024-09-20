@@ -4,8 +4,8 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>1332</x>
-            <y>1003</y>
+            <x>1322</x>
+            <y>995</y>
             <width>603</width>
             <height>415</height>
         </rect>
@@ -4077,7 +4077,7 @@ QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
                 <string>motorx_help.adl;motorx_more.adl;motorx_setup.adl;motorx_all.adl;scanParms.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),M=$(M3);P=$(P),M=$(M3);P=$(P),M=$(M3);P=$(P),M=$(M3);P=$(P),Q=$(M3),PV=$(M3)</string>
+                <string>P=$(PP),M=$(M3);P=$(PP),M=$(M3);P=$(PP),M=$(M3);P=$(PP),M=$(M3);P=$(PP),Q=$(M3),PV=$(M3)</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false;false;false</string>
