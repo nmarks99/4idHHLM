@@ -16,12 +16,17 @@
 QWidget#centralWidget {background: rgba(187, 187, 187, 255);}
 
 caTable {
-       font: 10pt;
        background: cornsilk;
        alternate-background-color: wheat;
 }
 
 caLineEdit {
+     border-radius: 1px;
+     background: lightyellow;
+     color: black;
+ }
+ 
+ caLabel {
      border-radius: 1px;
      background: lightyellow;
      color: black;
@@ -43,6 +48,7 @@ caTextEntry:focus {
     border-radius: 1px;
 }
 
+/* when font specified, no font sizing is done any more,  font: 10pt; is not bad */
 QPushButton {
       border-color: #00b;
       border-radius: 2px;
@@ -74,33 +80,31 @@ QPushButton:disabled {
 						stop:1   rgba(134, 188, 236, 255));
 }
 
-caChoice {
-      background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                  stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
-                                  stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
-}
 
 caChoice &gt; QPushButton {
-      text-align: left;
-      padding: 1px;
+text-align: left;
+background-color: lightgray;
+border: 3px gray;
 }
 
-caSlider::groove:horizontal {
-border: 1px solid #bbb;
-background: lightgrey;
-height: 20px;
-border-radius: 4px;
+caChoice &gt; QPushButton:pressed {
+background-color: lightgray;
+border: 3px gray;
 }
 
-caSlider::handle:horizontal {
-background: red;
-border: 1px solid #777;
-width: 13px;
-margin-top: -2px;
-margin-bottom: -2px;
-border-radius: 2px;
+caChoice &gt; QPushButton:checked {
+background-color: #EEEEEE;
+border: 3px gray;
 }
 
+caChoice &gt; QPushButton:default {
+background-color: lightgray;
+border: 3px gray;
+}
+
+caMenu{
+    background: lightyellow;
+}
 
 
 </string>
@@ -515,7 +519,7 @@ border-radius: 2px;
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>user calcs 1-10;user stringCalcs 1-10;user transforms 1-10;user string seqs 1-10;user arrayCalcs 1-10;user average 1-10;user calcOuts 1-10;user stringCalcs 11-20;user transforms 11-20;user string seqs 11-20;user arrayCalcs 11-20;user average 11-20;user calcOuts 11-20;user calcs 11-20;busyRecord;busyRecord 2;global enable;string sequence</string>
+                <string>user calcs 1-10;user stringCalcs 1-10;user transforms 1-10;user string seqs 1-10;user arrayCalcs 1-10;user average 1-10;user calcOuts 1-10;user stringCalcs 11-20;user transforms 11-20;user string seqs 11-20;user arrayCalcs 11-20;user average 11-20;user calcOuts 11-20;user calcs 11-20;busyRecord 1;busyRecord 2;global enable;string sequence</string>
             </property>
             <property name="files">
                 <string>userCalcs10.adl;userStringCalcs10.adl;userTransforms10.adl;userStringSeqs10.adl;userArrayCalcs10.adl;userAve10.adl;userCalcOuts10.adl;userStringCalcs10more.adl;userTransforms10more.adl;userStringSeqs10more.adl;userArrayCalcs10more.adl;userAve10more.adl;userCalcOuts10more.adl;userCalcs10more.adl;xxBusyRecord.adl;xxBusyRecord.adl;userCalcsGlobalEnable.adl;editSseq.adl</string>

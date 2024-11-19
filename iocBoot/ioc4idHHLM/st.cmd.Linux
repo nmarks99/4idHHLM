@@ -14,10 +14,7 @@ ioc4idHHLMLinux_registerRecordDeviceDriver(pdbbase)
 < settings.iocsh
 < common.iocsh
 
-# simulated motors for testing
-# < iocsh/motorSim.iocsh
-
-# ACS/FMBO controlled motors for HHLM
+# ACS/FMBO controlled motors for HHL mirror
 < iocsh/hhlm.iocsh
 
 # allstop, alldone

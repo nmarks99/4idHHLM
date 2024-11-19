@@ -2,7 +2,7 @@
 ##### FMBO Motion Box 8 (ACS) - HHLM #####
 ##########################################
 # Closed loop steppers
-# Must set MRES = EFAC
+# Must set MRES = EFAC (true for motorAcsMotion commit 8830d2f)
 
 # ACS0 - Y       (YELLOW)
 # ACS2 - X1      (RED)
@@ -14,8 +14,9 @@
 # Upstream: -15742400, -14188558
 # Downstream: -15833900, -14277714
 
-# Load ACS support, it is build as a standalone module
-iocshLoad("$(MOTOR_ACSMOTION)/iocsh/ACS_Motion_tcp.iocsh", "INSTANCE=ACS1,IP_ADDR=164.54.115.62,NUM_AXES=8,IDLE_POLL=0.2")
+# Load ACS support for FMBO MB8, it is build as a standalone module
+# iocshLoad("$(MOTOR_ACSMOTION)/iocsh/ACS_Motion_tcp.iocsh", "INSTANCE=ACS1,IP_ADDR=164.54.115.62,NUM_AXES=8,IDLE_POLL=0.2")
+iocshLoad("$(MOTOR_ACSMOTION)/iocsh/ACS_Motion_tcp.iocsh", "INSTANCE=ACS1,IP_ADDR=10.54.115.62,NUM_AXES=8,IDLE_POLL=0.2")
 
 # Load motor records
 dbLoadTemplate("substitutions/AcsMotion_hhlm.substitutions","P=$(PREFIX)")
@@ -28,23 +29,15 @@ dbLoadTemplate("substitutions/pseudoMotor.substitutions","P=$(PREFIX)")
 
 # Logic for bender lookup table, stripe selection, etc.
 dbLoadRecords("$(TOP)/db/hhlm.db","P=$(PREFIX),Y=m1,X1=m2,X2=m3,MIR_PITCH=pm2,MIR_CURV=pm3")
-# doAfterIocInit("dbpf('$(PREFIX)coarsePitchC1_calc.PROC','1')") # don't remember what this is...
+
+# 670mm = perpendicular distance between translation axes X1 and X2
+# Convert pitch pseudoMotor to mrad by setting constant C1 to (1000.0/670.0),
+# note this assumes small angle approximation tan(alpha)=alpha
+doAfterIocInit("dbpf('$(PREFIX)pm2C1','1.492537')") # TODO: check this
 
 ##################################################################
 
-# Set ERES to EFAC for each axis
-doAfterIocInit("dbpf('$(PREFIX)m1.ERES','0.00005')")
-doAfterIocInit("dbpf('$(PREFIX)m2.ERES','0.00005')")
-doAfterIocInit("dbpf('$(PREFIX)m3.ERES','0.00005')")
-doAfterIocInit("dbpf('$(PREFIX)m4.ERES','1.0')")
-doAfterIocInit("dbpf('$(PREFIX)m5.ERES','1.0')")
-
-# Set use encoder = yes
-doAfterIocInit("dbpf('$(PREFIX)m1.UEIP','1')")
-doAfterIocInit("dbpf('$(PREFIX)m2.UEIP','1')")
-doAfterIocInit("dbpf('$(PREFIX)m3.UEIP','1')")
-doAfterIocInit("dbpf('$(PREFIX)m4.UEIP','1')")
-doAfterIocInit("dbpf('$(PREFIX)m5.UEIP','1')")
+# Note: E_AOFFS for Y axis set in ACS controller
 
 # Offsets for benders
 doAfterIocInit("dbpf('$(PREFIX)m4.OFF','14944600.0')")
@@ -56,8 +49,14 @@ doAfterIocInit("dbpf('$(PREFIX)m5.FOFF','1')")
 # m2 limits: [319.3528, 330.2515]
 # m3 limits: [204.0248, 215.2069]
 # using mean of above limits for offset
-# TODO: E_AOFFS instead?
 doAfterIocInit("dbpf('$(PREFIX)m2.OFF','-324.8021')")
 doAfterIocInit("dbpf('$(PREFIX)m2.FOFF','1')")
 doAfterIocInit("dbpf('$(PREFIX)m3.OFF','-209.6158')")
 doAfterIocInit("dbpf('$(PREFIX)m3.FOFF','1')")
+
+# Set ERES to EFAC for each axis
+doAfterIocInit("dbpf('$(PREFIX)m1.ERES','0.00005')")
+doAfterIocInit("dbpf('$(PREFIX)m2.ERES','0.00005')")
+doAfterIocInit("dbpf('$(PREFIX)m3.ERES','0.00005')")
+doAfterIocInit("dbpf('$(PREFIX)m4.ERES','1.0')")
+doAfterIocInit("dbpf('$(PREFIX)m5.ERES','1.0')")

@@ -15,6 +15,98 @@
 
 QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
 
+caTable {
+       background: cornsilk;
+       alternate-background-color: wheat;
+}
+
+caLineEdit {
+     border-radius: 1px;
+     background: lightyellow;
+     color: black;
+ }
+ 
+ caLabel {
+     border-radius: 1px;
+     background: lightyellow;
+     color: black;
+ }
+
+caTextEntry {
+    color: rgb(127, 0, 63);
+    background-color: cornsilk;
+    selection-color: #0a214c;
+    selection-background-color: wheat;
+    border: 1px groove black;
+    border-radius: 1px;
+    padding: 1px;
+}
+
+caTextEntry:focus {
+    padding: 0px;
+    border: 2px groove darkred;
+    border-radius: 1px;
+}
+
+/* when font specified, no font sizing is done any more,  font: 10pt; is not bad */
+QPushButton {
+      border-color: #00b;
+      border-radius: 2px;
+      padding: 3px;
+      border-width: 1px;
+
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1,
+						   stop:0   rgba(224, 239, 255, 255),
+						   stop:0.5 rgba(199, 215, 230, 255),
+						   stop:1   rgba(184, 214, 236, 255));
+}
+QPushButton:hover {
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1,
+						stop:0   rgba(201, 226, 255, 255),
+						stop:0.5 rgba(177, 204, 230, 255),
+						stop:1   rgba(163, 205, 236, 255));
+}
+QPushButton:pressed {
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1,
+						stop:0   rgba(174, 219, 255, 255),
+						stop:0.5 rgba(165, 199, 230, 255),
+						stop:1   rgba(134, 188, 236, 255));
+}
+
+QPushButton:disabled {
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1,
+						stop:0   rgba(174, 219, 255, 255),
+						stop:0.5 rgba(165, 199, 230, 255),
+						stop:1   rgba(134, 188, 236, 255));
+}
+
+
+caChoice &gt; QPushButton {
+text-align: left;
+background-color: lightgray;
+border: 3px gray;
+}
+
+caChoice &gt; QPushButton:pressed {
+background-color: lightgray;
+border: 3px gray;
+}
+
+caChoice &gt; QPushButton:checked {
+background-color: #EEEEEE;
+border: 3px gray;
+}
+
+caChoice &gt; QPushButton:default {
+background-color: lightgray;
+border: 3px gray;
+}
+
+caMenu{
+    background: lightyellow;
+}
+
+
 </string>
     </property>
     <widget class="QWidget" name="centralWidget">
@@ -51,7 +143,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Table1 (S);Table1 (L);Table2 (S) (no Z);Table2 (L) (no Z);Table3 (S) (no X);Table3 (L) (no X);Table4 (S) (no X or Z);Table4 (L) (no X or Z);ASRP mirror table;Table1 soft (S)</string>
             </property>
             <property name="files">
-                <string>table.ui ;table_full.ui ;table.ui ;table_full.ui ;table.ui ;table_full.ui ;table.ui ;table_full.ui ;ASRPmirrorTable.ui ;table_soft.ui </string>
+                <string>table.adl;table_full.adl;table.adl;table_full.adl;table.adl;table_full.adl;table.adl;table_full.adl;ASRPmirrorTable.adl;table_soft.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6;P=4idHHLM:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6;P=4idHHLM:,Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=junk;P=4idHHLM:,Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=junk;P=4idHHLM:,Q=Table3,T=table3,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=m6;P=4idHHLM:,Q=Table3,T=table3,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=m6;P=4idHHLM:,Q=Table4,T=table4,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=junk;P=4idHHLM:,Q=Table4,T=table4,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=junk;P=4idHHLM:,TBL=mt1,VERT=4idHHLM:m7,PITCH=4idHHLM:m8;P=4idHHLM:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6</string>
@@ -93,10 +185,10 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>1-8;9-16;17-24;25-32;33-40;41-48;soft motors 1-10;Pseudo-motors;motor status 16</string>
             </property>
             <property name="files">
-                <string>topMotors8.ui ;topMotors8.ui ;topMotors8.ui ;topMotors8.ui ;topMotors8.ui ;topMotors8.ui ;softMotors10.ui ;topMotors4.ui ;motorStatus16.ui </string>
+                <string>topMotors8.adl;topMotors8.adl;topMotors8.adl;topMotors8.adl;topMotors8.adl;topMotors8.adl;softMotors10.adl;topMotors4.adl;motorStatus16.adl</string>
             </property>
             <property name="args">
-                <string>P=4idHHLM:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=4idHHLM:,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16;P=4idHHLM:,M1=m17,M2=m18,M3=m19,M4=m20,M5=m21,M6=m22,M7=m23,M8=m24;P=4idHHLM:,M1=m25,M2=m26,M3=m27,M4=m28,M5=m29,M6=m30,M7=m31,M8=m32;P=4idHHLM:,M1=m33,M2=m34,M3=m35,M4=m36,M5=m37,M6=m38,M7=m39,M8=m40;P=4idHHLM:,M1=m41,M2=m42,M3=m43,M4=m44,M5=m45,M6=m46,M7=m47,M8=m48;P=4idHHLM:,SM1=SM1,SM2=SM2,SM3=SM3,SM4=SM4,SM5=SM5,SM6=SM6,SM7=SM7,SM8=SM8,SM9=SM9,SM10=SM10;P=4idHHLM:,M1=pm1,M2=pm2,M3=pm3,M4=pm4;P=4idHHLM:</string>
+                <string>P=4idHHLM:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=4idHHLM:,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16;P=4idHHLM:,M1=m17,M2=m18,M3=m19,M4=m20,M5=m21,M6=m22,M7=m23,M8=m24;P=4idHHLM:,M1=m25,M2=m26,M3=m27,M4=m28,M5=m29,M6=m30,M7=m31,M8=m32;P=4idHHLM:,M1=m33,M2=m34,M3=m35,M4=m36,M5=m37,M6=m38,M7=m39,M8=m40;P=4idHHLM:,M1=m41,M2=m42,M3=m43,M4=m44,M5=m45,M6=m46,M7=m47,M8=m48;P=4idHHLM:,SM1=SM1,SM2=SM2,SM3=SM3,SM4=SM4,SM5=SM5,SM6=SM6,SM7=SM7,SM8=SM8,SM9=SM9,SM10=SM10;P=4idHHLM:,M1=mir1:lateral,M2=mir1:coarsePitch,M3=mir2:curvature,M4=mir2:elipticity;P=4idHHLM:</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false;false;false;false;false;false;false</string>
@@ -135,7 +227,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Kohzu Graphic (GEOM 1);Kohzu Graphic (GEOM 2);KohzuSeq (tiny);KohzuSeq;KohzuSeq (All);Energy-scan parameters;Theta-scan parameters;Wavelength-scan parameters</string>
             </property>
             <property name="files">
-                <string>kohzuGraphic.ui ;kohzu2Graphic.ui ;kohzuSeqCtl_tiny.ui ;kohzuSeqCtl.ui ;kohzuSeqCtl_All.ui ;scanParms.ui ;scanParms.ui ;scanParms.ui </string>
+                <string>kohzuGraphic.adl;kohzu2Graphic.adl;kohzuSeqCtl_tiny.adl;kohzuSeqCtl.adl;kohzuSeqCtl_All.adl;scanParms.adl;scanParms.adl;scanParms.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,mTH=m9,mY1=m10,mZ2=m11,mCHI2=m12,mTH2=m13,mX=m14,mY=m15,mX2=m16,QE=BraggE,PVE=BraggEAO,QL=BraggLambda,PVL=BraggLambdaAO,QTh=BraggTheta,PVTh=BraggThetaAO;P=4idHHLM:,mTH=m9,mY2=m10,mZ2=m11,mCHI2=m12,mTH2=m13,mX=m14,mY=m15,mX2=m16,QE=BraggE,PVE=BraggEAO,QL=BraggLambda,PVL=BraggLambdaAO,QTh=BraggTheta,PVTh=BraggThetaAO;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:,Q=BraggE,PV=BraggEAO;P=4idHHLM:,Q=BraggTheta,PV=BraggThetaAO;P=4idHHLM:,Q=BraggLambda,PV=BraggLambdaAO</string>
@@ -177,7 +269,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Scan1 (for all scans);Scan2 (for 2D &amp; higher scans);Scan3 (for 3D &amp; higher scans);Scan4 (for 4D scans);ScanH (for Hardware-assisted scans);test scanParms2Pos;saveData controls;aux scan;scanProgress;scan1Menu</string>
             </property>
             <property name="files">
-                <string>scan.ui ;scan.ui ;scan.ui ;scan.ui ;scan.ui ;scanParms2Pos.ui ;scan_saveData.ui ;scanAux.ui ;ProgressBar.ui ;configMenu.ui </string>
+                <string>scan.adl;scan.adl;scan.adl;scan.adl;scan.adl;scanParms2Pos.adl;scan_saveData.adl;scanAux.adl;ProgressBar.adl;configMenu.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,N=1,S=scan1;P=4idHHLM:,N=2,S=scan2;P=4idHHLM:,N=3,S=scan3;P=4idHHLM:,N=4,S=scan4;P=4idHHLM:,N=H,S=scanH;P=4idHHLM:,Q=m7_8,SCAN=4idHHLM:scan1,PV1=4idHHLM:m7,PV2=4idHHLM:m8;P=4idHHLM:;P=4idHHLM:,S=scanAux;P=4idHHLM:,B=4idHHLM:scanProgress:;P=4idHHLM:,CONFIG=scan1</string>
@@ -219,7 +311,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Scaler 1;Scaler 2;Scaler 3;Scaler1 (16 ch);Scaler1 (32 ch);Scaler1 (64 ch);Scaler 1 modCalc;SIS3820 scaler32;SIS3820 scaler8</string>
             </property>
             <property name="files">
-                <string>scaler16m.ui ;scaler.ui ;scaler.ui ;scaler16.ui ;scaler32.ui ;scaler64.ui ;scaler16m.ui ;scaler32.ui ;scaler.ui </string>
+                <string>scaler16m.adl;scaler.adl;scaler.adl;scaler16.adl;scaler32.adl;scaler64.adl;scaler16m.adl;scaler32.adl;scaler.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,S=scaler1;P=4idHHLM:,S=scaler2;P=4idHHLM:,S=scaler3;P=4idHHLM:,S=scaler1;P=4idHHLM:,S=scaler1;P=4idHHLM:,S=scaler1;P=4idHHLM:,S=scaler1;P=4idHHLM:3820:,S=scaler1;P=4idHHLM:3820:,S=scaler1</string>
@@ -261,7 +353,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Keithley 2000 DMM #1;Keithley 2000 DMM #2</string>
             </property>
             <property name="files">
-                <string>Keithley2kDMM_mf.ui ;Keithley2kDMM_mf.ui </string>
+                <string>Keithley2kDMM_mf.adl;Keithley2kDMM_mf.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Dmm=D1;P=4idHHLM:,Dmm=D2</string>
@@ -303,7 +395,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>HP Laser Axis 1;HP Laser Axis 2</string>
             </property>
             <property name="files">
-                <string>HPLaserAxis.ui ;HPLaserAxis.ui </string>
+                <string>HPLaserAxis.adl;HPLaserAxis.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q=HPLaser1;P=4idHHLM:,Q=HPLaser2</string>
@@ -345,7 +437,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Spherical Grating Monochromator (tiny);Spherical Grating Monochromator</string>
             </property>
             <property name="files">
-                <string>SGM_tiny.ui ;SGM.ui </string>
+                <string>SGM_tiny.adl;SGM.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8;P=4idHHLM:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8</string>
@@ -384,13 +476,13 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>2-post Mirror; </string>
+                <string>2-post Mirror; HHLM</string>
             </property>
             <property name="files">
-                <string>2postMirror.ui ;2postMirror.ui </string>
+                <string>2postMirror.adl;hhlm.adl</string>
             </property>
             <property name="args">
-                <string>P=4idHHLM:,Q=M1,mDn=m1,mUp=m2;P=4idHHLM:,Q=M1,mDn=m1,mUp=m2</string>
+                <string>P=4idHHLM:,Q=M1,mDn=m1,mUp=m2;P=4idHHLM:,X1=m1,X2=m2,Y=m3,PI1=m4,B1=m5,B2=m6,PM1=mir1:lateral,PM2=mir1:coarsePitch,PM3=mir2:curvature</string>
             </property>
             <property name="removeParent">
                 <string>false;false</string>
@@ -429,7 +521,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>High resolution monochromator (nested);High resolution monochromator (symmetric);High resolution monochromator control</string>
             </property>
             <property name="files">
-                <string>hr_nested.ui ;hr_symmetric.ui ;hrSeqCtl_All.ui </string>
+                <string>hr_nested.adl;hr_symmetric.adl;hrSeqCtl_All.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,N=1;P=4idHHLM:,N=1;P=4idHHLM:,N=1</string>
@@ -471,7 +563,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>IOC Status soft ioc;IOC Status vxworks ioc;save_restore Status;alive record</string>
             </property>
             <property name="files">
-                <string>ioc_stats_soft.ui ;ioc_stats_vxworks.ui ;save_restoreStatus.ui ;aliveRecord.ui </string>
+                <string>ioc_stats_soft.adl;ioc_stats_vxworks.adl;save_restoreStatus.adl;aliveRecord.adl</string>
             </property>
             <property name="args">
                 <string>ioc=4idHHLM;ioc=4idHHLM;P=4idHHLM:;P=4idHHLM:</string>
@@ -513,7 +605,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>generic VME;generic CAMAC;asyn GPIB;deviceCmdReply 1;deviceCmdReply 2;deviceCmdReply 3;deviceCmdReply 4;deviceCmdReply 5;deviceCmdReply 6;deviceCmdReply 7;deviceCmdReply 8</string>
             </property>
             <property name="files">
-                <string>recVme.ui ;CAMAC_IO.ui ;asynOctet.ui ;deviceCmdReply.ui ;deviceCmdReply.ui ;deviceCmdReply.ui ;deviceCmdReply.ui ;deviceCmdReply.ui ;deviceCmdReply.ui ;deviceCmdReply.ui ;deviceCmdReply.ui </string>
+                <string>recVme.adl;CAMAC_IO.adl;asynOctet.adl;deviceCmdReply.adl;deviceCmdReply.adl;deviceCmdReply.adl;deviceCmdReply.adl;deviceCmdReply.adl;deviceCmdReply.adl;deviceCmdReply.adl;deviceCmdReply.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q=vme1;REC=4idHHLM:camac1;P=4idHHLM:,R=gpib1;P=4idHHLM:,N=1;P=4idHHLM:,N=2;P=4idHHLM:,N=3;P=4idHHLM:,N=4;P=4idHHLM:,N=5;P=4idHHLM:,N=6;P=4idHHLM:,N=7;P=4idHHLM:,N=8</string>
@@ -555,7 +647,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>1 BM BPM info;1 ID BPM info;1 ID basic control;1 ID sync-scan control;new ID control;new ID control (us);24 hr. Beam History;24 hr. beam history, etc.</string>
             </property>
             <property name="files">
-                <string>xx_BM_BPM.ui ;xx_ID_BPM.ui ;IDControl.ui ;IDSyncScan.ui ;xxIDCtrl.ui ;xxIDCtrl.ui ;beamHistory.ui ;beamHistory_full.ui </string>
+                <string>xx_BM_BPM.adl;xx_ID_BPM.adl;IDControl.adl;IDSyncScan.adl;xxIDCtrl.adl;xxIDCtrl.adl;beamHistory.adl;beamHistory_full.adl</string>
             </property>
             <property name="args">
                 <string>xx=28us;xx=28us;ID=28us;ID=28us;P=4idHHLM:,xx=28;P=4idHHLM:,xx=28us;P=4idHHLM:,xx=28us;P=4idHHLM:,xx=28us</string>
@@ -597,7 +689,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string> ;User Filter;User Filter Setup;XIA pfcu;XIA pfcu (synApps 5.2.1);PF4 Filter;PF4 Filter small;PF4 Filter fake I/O;PF4 FilterBank A;Alt PF4 filter 16;Alt PF4 filter 8</string>
             </property>
             <property name="files">
-                <string>;2filter.ui ;2filter_setup.ui ;pf4.ui ;pf4dual.ui ;pf4.ui ;pf4small.ui ;pf4.ui ;pf4Bank.ui ;filter_8_8_more.ui ;filter_8_0_more.ui </string>
+                <string>;2filter.adl;2filter_setup.adl;pf4.adl;pf4dual.adl;pf4.adl;pf4small.adl;pf4.adl;pf4Bank.adl;filter_8_8_more.adl;filter_8_0_more.adl</string>
             </property>
             <property name="args">
                 <string>;P=4idHHLM:,Q1=fltr1:,Q2=fltr2:,LOCK1=fltr_1_2:,LOCK2=fltr_1_2:;P=4idHHLM:,Q1=fltr1:,Q2=fltr2:,LOCK1=fltr_1_2:,LOCK2=fltr_1_2:;P=4idHHLM:,H=pf401:,A=A,B=B,PV=,MONO=;P=4idHHLM:,PV1=4idHHLM:pf4_1:,PV2=4idHHLM:Unidig1Bo,MONO=4idHHLM:BraggERdbkAO;P=4idHHLM:,H=pf4:,A=A,B=B,MONO=4idHHLM:BraggEAO,B1=4idHHLM:Unidig1Bo3,B2=4idHHLM:Unidig1Bo4,B3=4idHHLM:Unidig1Bo5,B4=4idHHLM:Unidig1Bo6,B5=4idHHLM:Unidig1Bo7,B6=4idHHLM:Unidig1Bo8,B7=4idHHLM:Unidig1Bo9,B8=4idHHLM:Unidig1Bo10;P=4idHHLM:,H=pf4:,A=A,B=B,MONO=4idHHLM:BraggEAO,B1=4idHHLM:Unidig1Bo3,B2=4idHHLM:Unidig1Bo4,B3=4idHHLM:Unidig1Bo5,B4=4idHHLM:Unidig1Bo6,B5=4idHHLM:Unidig1Bo7,B6=4idHHLM:Unidig1Bo8,B7=4idHHLM:Unidig1Bo9,B8=4idHHLM:Unidig1Bo10;P=4idHHLM:,H=pf4:,A=A,B=B;P=4idHHLM:,H=pf4:,B=A;P=4idHHLM:,R=filter:;P=4idHHLM:,R=filter:</string>
@@ -639,7 +731,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Bunch Clock Generator;Bunch Clock display A;Bunch Clock 3id Top screen</string>
             </property>
             <property name="files">
-                <string>BunchClkGen.ui ;BunchClkGenA.ui ;BunchClkGenTop.ui </string>
+                <string>BunchClkGen.adl;BunchClkGenA.adl;BunchClkGenTop.adl</string>
             </property>
             <property name="args">
                 <string>UNIT=4idHHLM:BnchClkGen;UNIT=4idHHLM:BnchClkGen;UNIT=4idHHLM:BnchClkGen</string>
@@ -681,7 +773,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Queensgate piezo (3id);Queensgate piezo (std);Nano2k (ch 1);Nano2k (ch 2);Huber DMC9200 servo controller</string>
             </property>
             <property name="files">
-                <string>pzt_3id.ui ;pzt.ui ;Nano2k.ui ;Nano2k.ui ;HuberDMC4.ui </string>
+                <string>pzt_3id.adl;pzt.adl;Nano2k.adl;Nano2k.adl;HuberDMC4.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:;P=4idHHLM:;P=4idHHLM:,S=nano,p=1;P=4idHHLM:,S=nano,p=2;P=4idHHLM:,Q=DMC1:,M1=1,M2=2,M3=3,M4=4</string>
@@ -723,7 +815,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Heidenhain AWE1024;Heidenhain AWE1024;Heidenhain ND261;Heidenhain IK320</string>
             </property>
             <property name="files">
-                <string>HeidEncoder.ui ;HeidEncoder.ui ;HeidND261.ui ;HeidIK320_group.ui </string>
+                <string>HeidEncoder.adl;HeidEncoder.adl;HeidND261.adl;HeidIK320_group.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:, A=6;P=4idHHLM:, A=7;P=4idHHLM:;P=4idHHLM:,card=card0,group=5</string>
@@ -765,7 +857,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Autocollimator; </string>
             </property>
             <property name="files">
-                <string>Elcomat.ui ;Elcomat.ui </string>
+                <string>Elcomat.adl;Elcomat.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:;P=4idHHLM:</string>
@@ -807,7 +899,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>orientation matrix;orient9</string>
             </property>
             <property name="files">
-                <string>orient.ui ;orient9.ui </string>
+                <string>orient.adl;orient9.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,O=_0,PM=4idHHLM:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12;P=4idHHLM:,PM=4idHHLM:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12</string>
@@ -849,7 +941,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Canberra AIM Multichannel Analyzer;MCA with ROI&apos;s;ADC 1;TCA 1;HVPS 1;AMP 1;DSP 1;soft MCA</string>
             </property>
             <property name="files">
-                <string>mca_small.ui ;mca.ui ;xxIcbAdc.ui ;xxIcbTCA.ui ;xxIcbHVPS.ui ;xxIcbAmp.ui ;dsp9660Gain.ui ;mca_small.ui </string>
+                <string>mca_small.adl;mca.adl;xxIcbAdc.adl;xxIcbTCA.adl;xxIcbHVPS.adl;xxIcbAmp.adl;dsp9660Gain.adl;mca_small.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,M=aim_adc1;P=4idHHLM:,M=aim_adc1;P=4idHHLM:,ADC=adc1;P=4idHHLM:,TCA=tca1;P=4idHHLM:,HVPS=hvps1;P=4idHHLM:,AMP=amp1;P=4idHHLM:,DSP=dsp1;P=4idHHLM:,M=softMCA</string>
@@ -891,7 +983,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>4-step measurement</string>
             </property>
             <property name="files">
-                <string>4step.ui </string>
+                <string>4step.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:</string>
@@ -1108,7 +1200,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>interp;arrayTest;pvHistory 1;interpNew</string>
             </property>
             <property name="files">
-                <string>interp.ui ;arrayTest.ui ;pvHistory.ui ;interpNew.ui </string>
+                <string>interp.adl;arrayTest.adl;pvHistory.adl;interpNew.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:;P=4idHHLM:;P=4idHHLM:,N=1;P=4idHHLM:,Q=1</string>
@@ -1150,7 +1242,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>vme DAC 1 Chans 1-8;vme DAC 2 Chans 1-8;dac128V 1 Chans 1-8;vme DAC 1 Chans 1-8</string>
             </property>
             <property name="files">
-                <string>VME_DAC8.ui ;VME_DAC8.ui ;topDAC8.ui ;topDAC8.ui </string>
+                <string>VME_DAC8.adl;VME_DAC8.adl;topDAC8.adl;topDAC8.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,D=1;P=4idHHLM:,D=2;P=4idHHLM:,D=3;P=4idHHLM:,D=1</string>
@@ -1192,7 +1284,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>3 element detector;summed spectrum (mca0);sum control;HV power supply</string>
             </property>
             <property name="files">
-                <string>3element.ui ;mca_small.ui ;mcaSum3.ui ;xxIcbHVPS.ui </string>
+                <string>3element.adl;mca_small.adl;mcaSum3.adl;xxIcbHVPS.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:med:;P=4idHHLM:med:,M=mca0;P=4idHHLM:med:;P=4idHHLM:med:,HVPS=hvps1</string>
@@ -1234,7 +1326,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>SIS38XX</string>
             </property>
             <property name="files">
-                <string>SIS38XX.ui </string>
+                <string>SIS38XX.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:3820:</string>
@@ -1276,7 +1368,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>IpUnidig I/O; Acromag 8 in; Acromag 8 out; Acromag 16 out; Acromag 16 in</string>
             </property>
             <property name="files">
-                <string>IpUnidig_top.ui ;Acromag_8in.ui ;Acromag_8out.ui ;Acromag_16out.ui ;Acromag_16in.ui </string>
+                <string>IpUnidig_top.adl;Acromag_8in.adl;Acromag_8out.adl;Acromag_16out.adl;Acromag_16in.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,R=Unidig1;P=4idHHLM:,A=1,CH0=0,CH1=1,CH2=2,CH3=3,CH4=4,CH5=5,CH6=6,CH7=7;P=4idHHLM:,A=1,CH0=0,CH1=1,CH2=2,CH3=3,CH4=4,CH5=5,CH6=6,CH7=7;P=4idHHLM:,A=1;P=4idHHLM:,A=1</string>
@@ -1318,7 +1410,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Quad Electrometer Ch.1;Quad Electrometer Ch.2;Quad Electrometer Ch.3;Quad Electrometer Ch.4;Quad Electrometer MCAs;Vertical feedback;Horizontal feedback</string>
             </property>
             <property name="files">
-                <string>quadEM.ui ;quadEM.ui ;quadEM.ui ;quadEM.ui ;quadEM_med.ui ;pid_control.ui ;pid_control.ui </string>
+                <string>quadEM.adl;quadEM.adl;quadEM.adl;quadEM.adl;quadEM_med.adl;pid_control.adl;pid_control.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,EM=EM1;P=4idHHLM:,EM=EM2;P=4idHHLM:,EM=EM3;P=4idHHLM:,EM=EM4;P=4idHHLM:quadEM:, P_FFT=4idHHLM:quadEM_FFT:;P=4idHHLM:, PID=quadEMVertical,TITLE=Vertical_Feedback;P=4idHHLM:, PID=quadEMHorizontal,TITLE=Horizontal_Feedback</string>
@@ -1360,7 +1452,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>asyn record serial1;asyn record serial2;asyn record serial3;asyn record serial4;asyn record serial5;asyn record serial6;asyn record serial7;asyn record serial8;asyn record serialBiSS</string>
             </property>
             <property name="files">
-                <string>asynOctet.ui ;asynOctet.ui ;asynOctet.ui ;asynOctet.ui ;asynOctet.ui ;asynOctet.ui ;asynOctet.ui ;asynOctet.ui ;asynOctet.ui </string>
+                <string>asynOctet.adl;asynOctet.adl;asynOctet.adl;asynOctet.adl;asynOctet.adl;asynOctet.adl;asynOctet.adl;asynOctet.adl;asynOctet.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,R=asyn_1;P=4idHHLM:,R=asyn_2;P=4idHHLM:,R=asyn_3;P=4idHHLM:,R=asyn_4;P=4idHHLM:,R=asyn_5;P=4idHHLM:,R=asyn_6;P=4idHHLM:,R=asyn_7;P=4idHHLM:,R=asyn_8;P=4idHHLM:,R=BiSS</string>
@@ -1402,7 +1494,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>caputRecorder;caputRecorderA</string>
             </property>
             <property name="files">
-                <string>caputRecorder.ui ;caputRecorder.ui </string>
+                <string>caputRecorder.adl;caputRecorder.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,L=4idHHLM:;P=4idHHLMA:,L=4idHHLM:</string>
@@ -1444,7 +1536,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>CoarseFine</string>
             </property>
             <property name="files">
-                <string>CoarseFineMotor.ui </string>
+                <string>CoarseFineMotor.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:cf1:,M=MOT,PM=4idHHLM:,CM=m1,FM=m2</string>
@@ -1486,7 +1578,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>XIA shutter 1;XIA shutter 2</string>
             </property>
             <property name="files">
-                <string>XIA_shutter.ui ;XIA_shutterTry.ui </string>
+                <string>XIA_shutter.adl;XIA_shutterTry.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,S=shutter1;P=4idHHLM:,S=shutter2</string>
@@ -1528,7 +1620,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Io</string>
             </property>
             <property name="files">
-                <string>Io.ui </string>
+                <string>Io.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:Io:,S=4idHHLM:scaler1,MONO=4idHHLM:BraggEAO</string>
@@ -1570,7 +1662,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Slit 1 (H);Slit 1 (V);Slit 1 Graphic;Slit Motors;Slit 2 (H) (soft);Slit 2 (V) (soft);Slit 2 Graphic (soft);XIA slit 1 (H);XIA slit 1 (V)</string>
             </property>
             <property name="files">
-                <string>2slit.ui ;2slit.ui ;4slitGraphic.ui ;motor4x.ui ;2slit_soft.ui ;2slit_soft.ui ;4slitGraphic_soft.ui ;xia_slit.ui ;xia_slit.ui </string>
+                <string>2slit.adl;2slit.adl;4slitGraphic.adl;motor4x.adl;2slit_soft.adl;2slit_soft.adl;4slitGraphic_soft.adl;xia_slit.adl;xia_slit.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,SLIT=Slit1H,mXp=m5,mXn=m6;P=4idHHLM:,SLIT=Slit1V,mXp=m3,mXn=m4;P=4idHHLM:,SLIT=Slit_1,H=Slit1H,mXp=m3,mXn=m4,V=Slit1V,mYp=m5,mYn=m6;P=4idHHLM:,M1=m3,M2=m4,M3=m5,M4=m6;P=4idHHLM:,SLIT=Slit2H,mXp=m15,mXn=m16;P=4idHHLM:,SLIT=Slit2V,mXp=m13,mXn=m14;P=4idHHLM:,SLIT=Slit_2,H=Slit2H,mXp=m15,mXn=m16,V=Slit2V,mYp=m13,mYn=m14;P=4idHHLM:,HSC=hsc1:;P=4idHHLM:,HSC=hsc2:</string>
@@ -1612,7 +1704,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Love controllers</string>
             </property>
             <property name="files">
-                <string>LoveList4.ui </string>
+                <string>LoveList4.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q1=Love1,Q2=Love2,Q3=Love3,Q4=Love4</string>
@@ -1654,7 +1746,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>ramp/tweak rt1;ramp/tweak rt2</string>
             </property>
             <property name="files">
-                <string>ramp_tweak.ui ;ramp_tweak.ui </string>
+                <string>ramp_tweak.adl;ramp_tweak.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q=rt1;P=4idHHLM:,Q=rt2</string>
@@ -1696,7 +1788,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>SRS 570 Current Preamplifier #A1;SRS 570 Current Preamplifier #A2;SRS 570 Current Preamplifier #A3;SRS 570 Current Preamplifier #A4;SRS 570 Current Preamplifier #A5;Femto Current Preamplifier</string>
             </property>
             <property name="files">
-                <string>SR570_tiny.ui ;SR570_tiny.ui ;SR570_tiny.ui ;SR570_tiny.ui ;SR570_tiny.ui ;femto.ui </string>
+                <string>SR570_tiny.adl;SR570_tiny.adl;SR570_tiny.adl;SR570_tiny.adl;SR570_tiny.adl;femto.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,A=A1;P=4idHHLM:,A=A2;P=4idHHLM:,A=A3;P=4idHHLM:,A=A4;P=4idHHLM:,A=A5;P=4idHHLM:,H=fem01:,F=seq01:,AC=4idHHLM:Unidig1Bo9</string>
@@ -1738,7 +1830,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>LakeShore Temp. Controller;Keithley DMM (thermistors);Eurotherm;Eurotherm 2k</string>
             </property>
             <property name="files">
-                <string>LakeShore.ui ;KeithleyDMM.ui ;Eurotherm.ui ;Eurotherm2k.ui </string>
+                <string>LakeShore.adl;KeithleyDMM.adl;Eurotherm.adl;Eurotherm2k.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q=TC1;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:,TC=1</string>
@@ -1780,7 +1872,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>ml_monoGraphic;ml_monoSeq (tiny);ml_monoSeq;ml_monoSeq (All);Energy-scan parameters;Theta-scan parameters;Wavelength-scan parameters</string>
             </property>
             <property name="files">
-                <string>ml_monoGraphic.ui ;ml_monoSeqCtl_tiny.ui ;ml_monoSeqCtl.ui ;ml_monoSeqCtl_All.ui ;scanParms.ui ;scanParms.ui ;scanParms.ui </string>
+                <string>ml_monoGraphic.adl;ml_monoSeqCtl_tiny.adl;ml_monoSeqCtl.adl;ml_monoSeqCtl_All.adl;scanParms.adl;scanParms.adl;scanParms.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,mY1=m1,mZ1=m2,mY2=m9,mZ2=m8,mT1=m7,mT2=m10,mB=m11;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:,Q=ml_monoE,PV=ml_monoE;P=4idHHLM:,Q=ml_monoTheta,PV=ml_monoTheta;P=4idHHLM:,Q=ml_monoLambda,PV=ml_monoLambda</string>
@@ -1822,7 +1914,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>softGlueMenu;softGlue2 Menu;shift 1;shift 2;SoftGlue Circuits</string>
             </property>
             <property name="files">
-                <string>softGlueMenu.ui ;softGlueMenu.ui ;softGlue_Shift32_bare.ui ;softGlue_Shift32_bare.ui ;configMenu.ui </string>
+                <string>softGlueMenu.adl;softGlueMenu.adl;softGlue_Shift32_bare.adl;softGlue_Shift32_bare.adl;configMenu.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,H=softGlue:;P=4idHHLM:,H=softGlue2:;P=4idHHLM:,H=softGlue:,N=1;P=4idHHLM:,H=softGlue:,N=2;P=4idHHLM:,CONFIG=SG</string>
@@ -1864,7 +1956,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>funcGen</string>
             </property>
             <property name="files">
-                <string>FuncGen.ui </string>
+                <string>FuncGen.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q=fgen</string>
@@ -1906,7 +1998,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>ADC 1;ADC 1 sweep;ADC 2 sweep;ADC 3 sweep;ADC 4 sweep;Slow feedback;Fast feedback;Async Slow feedback</string>
             </property>
             <property name="files">
-                <string>Ip330Scan.ui ;mca_small.ui ;mca_small.ui ;mca_small.ui ;mca_small.ui ;pid_control.ui ;pid_control.ui ;async_pid_control.ui </string>
+                <string>Ip330Scan.adl;mca_small.adl;mca_small.adl;mca_small.adl;mca_small.adl;pid_control.adl;pid_control.adl;async_pid_control.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,R=IP330_;P=4idHHLM:,M=mip330_1;P=4idHHLM:,M=mip330_2;P=4idHHLM:,M=mip330_3;P=4idHHLM:,M=mip330_4;P=4idHHLM:,PID=pid_slow,TITLE=Slow_Feedback;P=4idHHLM:,PID=ip330PIDFast,TITLE=Fast_Feedback;P=4idHHLM:,PID=async_pid_slow,TITLE=Slow_Feedback</string>
@@ -1948,7 +2040,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>standard trajectoryScan;trajectoryScan1;trajectoryScan2;trajectoryScan1 (2 mot);MM4000 XPS trajectory</string>
             </property>
             <property name="files">
-                <string>trajectoryScan.ui ;MAX_trajectoryScan.ui ;MAX_trajectoryScan.ui ;MAX_trajectoryScan2.ui ;trajectoryScan.ui </string>
+                <string>trajectoryScan.adl;MAX_trajectoryScan.adl;MAX_trajectoryScan.adl;MAX_trajectoryScan2.adl;trajectoryScan.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=4idHHLM:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=4idHHLM:,R=traj2:,TITLE=traj2,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16;P=4idHHLM:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=4idHHLM:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8</string>
@@ -1990,10 +2082,10 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Simulator #1 General;Simulator #1 Specific;Simulator #2 General;Simulator #2 Specific;AD Top (prebuilts)</string>
             </property>
             <property name="files">
-                <string>ADBase.ui ;simDetector.ui ;ADBase.ui ;simDetector.ui ;ADTop.ui </string>
+                <string>ADBase.adl;simDetector.adl;ADBase.adl;simDetector.adl;ADTop.adl</string>
             </property>
             <property name="args">
-                <string>P=4idHHLM:, R=SIM1:cam1:;P=4idHHLM:, R=SIM1:cam1:;P=4idHHLM:, R=SIM1:cam2:;P=4idHHLM:, R=SIM1:cam2:;</string>
+                <string>P=4idHHLM:, R=SIM1:cam1:;P=4idHHLM:, R=SIM1:cam1:;P=4idHHLM:, R=SIM1:cam2:;P=4idHHLM:, R=SIM1:cam2:;P=4idHHLM:, R=SIM1:cam2:</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false;false;false</string>
@@ -2032,7 +2124,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>count down timer</string>
             </property>
             <property name="files">
-                <string>countDownTimer.ui </string>
+                <string>countDownTimer.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,N=1</string>
@@ -2074,7 +2166,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>alarm clock</string>
             </property>
             <property name="files">
-                <string>alarmClock.ui </string>
+                <string>alarmClock.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,A=1</string>
@@ -2116,7 +2208,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>timer</string>
             </property>
             <property name="files">
-                <string>timer.ui </string>
+                <string>timer.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,N=1</string>
@@ -2158,7 +2250,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>CR74x;fieldVector;selector;beamEnergy;SlewScan;tomography fly;hexFly;rock;Ensemble PSO Fly;encoder Fly;encoderInterlaceFly;multExposePosFilt;multExposePos;Security Control;waveformTypes menu;recordPV</string>
             </property>
             <property name="files">
-                <string>CR74x.ui ;fieldVector.ui ;selector.ui ;beamEnergy.ui ;slew.ui ;tomoFly.ui ;hexFly.ui ;rock.ui ;EnsemblePSOFly.ui ;encoderFly.ui ;encoderInterlaceFly.ui ;multExposePosFilt.ui ;multExposePos.ui ;Security_Control.ui ;configMenu.ui ;recordPV.ui </string>
+                <string>CR74x.adl;fieldVector.adl;selector.adl;beamEnergy.adl;slew.adl;tomoFly.adl;hexFly.adl;rock.adl;EnsemblePSOFly.adl;encoderFly.adl;encoderInterlaceFly.adl;multExposePosFilt.adl;multExposePos.adl;Security_Control.adl;configMenu.adl;recordPV.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q=test:;P=4idc2:,Q=8p:;P=4idHHLM:,R=obj;P=4idHHLM:;P=4idHHLM:,M=m2,MCS=3820:;P=4idHHLM:,Q=tomoFly:;P=4idHHLM:,Q=hexFly:;P=4idHHLM:,Q=rock:;P=4idHHLM:,Q=PSOFly:;P=4idHHLM:,Q=eFly:;P=4idHHLM:,Q=iFly:,FLY=4idHHLM:eFly:;P=4idHHLM:,Q=mxpf:;P=4idHHLM:,Q=mxp:;P=4idHHLM:;P=4idHHLM:,CONFIG=waveformTypes;P=4idHHLM:,Q=recPV:,R=PV1</string>
@@ -2200,7 +2292,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>MLLH;MLLH hard motors;MLLV;MLLV hard motors</string>
             </property>
             <property name="files">
-                <string>MLLH.ui ;motor3x.ui ;MLLV.ui ;motor5x.ui </string>
+                <string>MLLH.adl;motor3x.adl;MLLV.adl;motor5x.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q=MLLH:;P=4idHHLM:,M1=m2,M2=m1,M3=m3;P=4idHHLM:,Q=MLLV:;P=4idHHLM:,M1=m4,M2=m5,M3=m6,M4=m7,M5=m8</string>
@@ -2242,10 +2334,10 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>user calcs 1-10;user stringCalcs 1-10;user transforms 1-10;user string seqs 1-10;user arrayCalcs 1-10;user average 1-10;user calcOuts 1-10;user stringCalcs 11-20;user transforms 11-20;user string seqs 11-20;user arrayCalcs 11-20;user average 11-20;user calcOuts 11-20;user calcs 11-20;busyRecord;global enable</string>
             </property>
             <property name="files">
-                <string>userCalcs10.ui ;userStringCalcs10.ui ;userTransforms10.ui ;userStringSeqs10.ui ;userArrayCalcs10.ui ;userAve10.ui ;userCalcOuts10.ui ;userStringCalcs10more.ui ;userTransforms10more.ui ;userStringSeqs10more.ui ;userArrayCalcs10more.ui ;userAve10more.ui ;userCalcOuts10more.ui ;userCalcs10more.ui ;xxBusyRecord.ui ;userCalcsGlobalEnable.ui </string>
+                <string>userCalcs10.adl;userStringCalcs10.adl;userTransforms10.adl;userStringSeqs10.adl;userArrayCalcs10.adl;userAve10.adl;userCalcOuts10.adl;userStringCalcs10more.adl;userTransforms10more.adl;userStringSeqs10more.adl;userArrayCalcs10more.adl;userAve10more.adl;userCalcOuts10more.adl;userCalcs10more.adl;xxBusyRecord2x.adl;userCalcsGlobalEnable.adl</string>
             </property>
             <property name="args">
-                <string>P=4idHHLM:;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,R=mybusy;P=4idHHLM:</string>
+                <string>P=4idHHLM:;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=4idHHLM:,R1=mybusy1,R2=mybusy2;P=4idHHLM:</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;false</string>
@@ -2284,7 +2376,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Agilent 33220A</string>
             </property>
             <property name="files">
-                <string>Agilent_33220A_test1.ui </string>
+                <string>Agilent_33220A_test1.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,S=1</string>
@@ -2326,7 +2418,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>encoderFly;encoderInterlaceFly;encoderTableFly</string>
             </property>
             <property name="files">
-                <string>encoderFly.ui ;encoderInterlaceFly.ui ;encoderTableFly.ui </string>
+                <string>encoderFly.adl;encoderInterlaceFly.adl;encoderTableFly.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q=eFly:;P=4idHHLM:,Q=iFly:,FLY=4idHHLM:eFly:;P=yyy:,Q=tFly:,FLY=4idHHLM:eFly:</string>
@@ -2368,7 +2460,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>dlmPlots.adl</string>
             </property>
             <property name="files">
-                <string>dlmPlots.ui </string>
+                <string>dlmPlots.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q=dlm:</string>
@@ -2410,7 +2502,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>TDS3000 scope;asyn record; ; </string>
             </property>
             <property name="files">
-                <string>tds3000_c.ui ;asynRecord.ui ;asynRecord.ui ;asynRecord.ui </string>
+                <string>tds3000_c.adl;asynRecord.adl;asynRecord.adl;asynRecord.adl</string>
             </property>
             <property name="args">
                 <string>scope=4idHHLM:tds:;P=4idHHLM:,R=tds:;P=4idHHLM:,R=tds:;P=4idHHLM:,R=tds:</string>
@@ -2452,7 +2544,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>grating</string>
             </property>
             <property name="files">
-                <string>grating.ui </string>
+                <string>grating.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q=gr:</string>
@@ -2494,7 +2586,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>encoderFly;encoderInterlaceFly;encoderTableFly;interlaceParms;EnsemblePSOFly;interlaceFly;tablePSOFly;interlaceParms</string>
             </property>
             <property name="files">
-                <string>encoderFly.ui ;encoderInterlaceFly.ui ;encoderTableFly.ui ;interlaceParms.ui ;EnsemblePSOFly.ui ;interlaceFly.ui ;tablePSOFly.ui ;interlaceParms.ui </string>
+                <string>encoderFly.adl;encoderInterlaceFly.adl;encoderTableFly.adl;interlaceParms.adl;EnsemblePSOFly.adl;interlaceFly.adl;tablePSOFly.adl;interlaceParms.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,Q=eFly:;P=4idHHLM:,Q=iFly:,FLY=4idHHLM:eFly:;P=yyy:,Q=tFly:;P=4idHHLM:,Q=iParms1:;P=4idHHLM:,Q=PSOFly:;P=4idHHLM:,Q=iFly:;P=yyy:,Q=tFly:;P=4idHHLM:,Q=iParms2:</string>
@@ -2536,7 +2628,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>DG645;DG535;delaygen.adl</string>
             </property>
             <property name="files">
-                <string>srsDG645.ui ;devDG535.ui ;delaygen.ui </string>
+                <string>srsDG645.adl;devDG535.adl;delaygen.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,R=DG0:;P=4idHHLM:,R=DG0:;P=4idHHLM:</string>
@@ -2578,7 +2670,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>calcEnergy</string>
             </property>
             <property name="files">
-                <string>calcEnergy.ui </string>
+                <string>calcEnergy.adl</string>
             </property>
             <property name="args">
                 <string>P=4idHHLM:,P_ID=4idHHLM:,P_MONO=4idHHLM:,P_SLIT=4idHHLM:</string>
